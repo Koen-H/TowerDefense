@@ -5,18 +5,23 @@ TagManager:
   serializedVersion: 2
   tags:
   - Path
+  - Range
+  - Projectile
+  - Tower
+  - Water
+  - Land
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Island
   - Water
   - UI
-  - 
-  - 
+  - Tower
+  - Path
   - Enemy
-  - 
-  - 
+  - Projectile
+  - PlaceTower
   - 
   - 
   - 

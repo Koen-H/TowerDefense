@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4042023243963394660, guid: 91b55d01b273c4c4e8302ef8a9c3246b, type: 3}
       propertyPath: m_Name
-      value: PathStart
+      value: PathStart Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6487431361685407360, guid: 91b55d01b273c4c4e8302ef8a9c3246b, type: 3}
       propertyPath: m_RootOrder

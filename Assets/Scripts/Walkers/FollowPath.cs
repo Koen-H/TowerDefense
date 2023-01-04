@@ -3,21 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class FollowPath : MonoBehaviour
+public class FollowPath : Walker
 {
-    [SerializeField] bool moving;
-    [SerializeField] float speed;
-    [SerializeField] float rotSpeed;
-    [SerializeField] int targetNode = 0;
-    [SerializeField] Vector2 targetNodePos;
-
-    List<Path> path;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

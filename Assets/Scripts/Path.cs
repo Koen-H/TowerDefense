@@ -10,6 +10,7 @@ public class Path : MonoBehaviour
     public bool isEnd = false;
     public int pathNodeId;
     [SerializeField] PathGenerator pathGenerator;
+    LayerMask _layer;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class Path : MonoBehaviour
     {
         pathGenerator = GameManager.Instance.pathGenerator;
         pathGenerator.AddPathNode(this);
+        _layer = LayerMask.GetMask("Path");
     }
 
     public List<Path> GetAlignedNodes()
@@ -30,12 +32,12 @@ public class Path : MonoBehaviour
 
         foreach (Vector2 direction in directions)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1.5f);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1.5f, _layer);
             Debug.DrawRay(transform.position, direction, Color.red, 1.5f);
             if (hit.collider != null)
             {
                 alignedNodes.Add(hit.collider.GetComponent<Path>());
-                Debug.DrawRay(transform.position, direction, Color.green, 100000);
+                Debug.DrawRay(transform.position, direction, Color.red, 100000);
                // Debug.Log($"{gameObject.name} hit {hit.collider.name} by direction {direction}");
             }
         }
