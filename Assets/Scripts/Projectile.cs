@@ -25,7 +25,6 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        Debug.Log((tower.transform.position - transform.position).magnitude);
         if ((tower.transform.position - transform.position).magnitude > lifeSpanRange) Die();
     }
 

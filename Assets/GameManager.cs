@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     public PathGenerator pathGenerator;
+    public MouseManager mouseManager;
 
     public static GameManager Instance { get {
             if (_instance == null) Debug.LogError("GameManager is null");
@@ -26,6 +27,11 @@ public class GameManager : MonoBehaviour
 
 
         pathGenerator = this.GetComponent<PathGenerator>();
+        mouseManager = this.GetComponent<MouseManager>();
+    }
+
+    private void Start()
+    {
     }
 
 
