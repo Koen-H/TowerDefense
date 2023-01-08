@@ -8,10 +8,12 @@ public class Range : MonoBehaviour
     Tower tower;
     [SerializeField] float range;
     List<Enemy> enemiesWithinRange = new List<Enemy>();
+    SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
         tower = GetComponentInParent<Tower>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Start is called before the first frame update
@@ -65,16 +67,36 @@ public class Range : MonoBehaviour
         return range;
     }
 
-    Enemy GetFirstEnemy() //TODO
+    public void ShowRange(bool show)
+    {
+        spriteRenderer.enabled = show;
+    }
+
+    /// <summary>
+    /// Returns the first on the path within reach
+    /// </summary>
+    /// <returns></returns>
+    Enemy GetFirstEnemy()
+    {
+        Enemy firstEnemy = null;
+        int firstEnemyNode = 0;
+        foreach (Enemy enemy in enemiesWithinRange) if (firstEnemy == null || enemy.walker.GetTargetNode() <= firstEnemyNode)
+            {
+                firstEnemy = enemy;
+                //firstEnemyDistance = new Vector2(enemy.transform.position.x - this.transform.position.x, enemy.transform.position.y - this.transform.position.y).magnitude;
+            }
+        return firstEnemy;
+    }
+    /// <summary>
+    /// Get the last enemy on the path within reach
+    /// </summary>
+    /// <returns></returns>
+    Enemy GetLastEnemy()
     {
         Enemy firstEnemy = null;
         int firstEnemyNode = 0;
         foreach (Enemy enemy in enemiesWithinRange) if (firstEnemy == null || enemy.walker.GetTargetNode() >= firstEnemyNode)
             {
-                if (firstEnemyNode == enemy.walker.GetTargetNode())
-                {
-
-                }
                 firstEnemy = enemy;
                 //firstEnemyDistance = new Vector2(enemy.transform.position.x - this.transform.position.x, enemy.transform.position.y - this.transform.position.y).magnitude;
             }

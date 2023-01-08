@@ -5,7 +5,12 @@ using static UnityEngine.GraphicsBuffer;
 
 public class FollowPath : Walker
 {
-
+    private void Start()
+    {
+        path = GameManager.Instance.pathGenerator.GetPath();
+        moving = true;
+        this.transform.position = path[0].transform.position;
+    }
     // Update is called once per frame
     void Update()
     {

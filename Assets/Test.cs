@@ -4,44 +4,14 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    RectTransform rectTR;
 
-    private void Awake()
+    void OnMouseDown()
     {
-        rectTR = this.GetComponent<RectTransform>();
+        Debug.Log("click");
+        //Open upgrades
     }
-
-    private void Update()
+    void OnMouseExit()
     {
-        GetInView();
-    }
-
-    void GetInView()
-    {
-        Vector2 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-        if (screenPos.x - (rectTR.rect.width / 2f) < 0)
-        {
-            screenPos.x  = screenPos.x + ((rectTR.rect.width / 2f) - screenPos.x);
-            screenPos = Camera.main.ScreenToWorldPoint(screenPos);
-            transform.position = new Vector3(screenPos.x, screenPos.y,0);
-        }
-        else if(screenPos.x + (rectTR.rect.width / 2f) > Camera.main.pixelWidth)
-        {
-            screenPos.x = screenPos.x - ((rectTR.rect.width / 2f) - (Camera.main.pixelWidth - screenPos.x));
-            screenPos = Camera.main.ScreenToWorldPoint(screenPos);
-            transform.position = new Vector3(screenPos.x, screenPos.y, 0);
-        }
-        else if (screenPos.y - (rectTR.rect.height / 2f) < 0)
-        {
-            screenPos.y = screenPos.y + ((rectTR.rect.height / 2f) - screenPos.y);
-            screenPos = Camera.main.ScreenToWorldPoint(screenPos);
-            transform.position = new Vector3(screenPos.x, screenPos.y, 0);
-        }
-        else if (screenPos.y + (rectTR.rect.height / 2f) > Camera.main.pixelHeight)
-        {
-            screenPos.y = screenPos.y - ((rectTR.rect.height / 2f) - (Camera.main.pixelHeight - screenPos.y));
-            screenPos = Camera.main.ScreenToWorldPoint(screenPos);
-            transform.position = new Vector3(screenPos.x, screenPos.y, 0);
-        }
+        Debug.Log("click away");
     }
 }

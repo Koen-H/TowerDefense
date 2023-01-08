@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using static UnityEngine.GraphicsBuffer;
 
 public class Tower : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class Tower : MonoBehaviour
 
     [SerializeField] SpriteRenderer rangeMesh;
 
-
+    [SerializeField] TowerUpgrade[] upgrades;
 
 
 
@@ -27,12 +29,7 @@ public class Tower : MonoBehaviour
     private void Awake()
     {
         rangeMesh = range.GetComponent<SpriteRenderer>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        upgrades = GetComponents<TowerUpgrade>();
     }
 
     // Update is called once per frame
@@ -48,20 +45,21 @@ public class Tower : MonoBehaviour
     }
 
 
-    public void OnMouseDown()
-    {
-        rangeMesh.enabled = true;
-        //Open upgrades
-    }
-    void OnMouseExit()
-    {
-        rangeMesh.enabled=false;
-    }
-
     public float GetRange()
     {
         return range.GetRange();
     }
+    public void ShowRange(bool show)
+    {
+        range.ShowRange(show);
+    }
+
+    public void SetSpeed(float speed)
+    {
+        foreach (Shooter cannon in shooters) cannon.SetSpeed(speed);
+    }
+
+   public TowerUpgrade[] GetUpgrades() { return upgrades; }
 }
 
 public enum TargetingType

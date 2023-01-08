@@ -25,7 +25,7 @@ public class StayInCanvas : MonoBehaviour
 
     private void Update()
     {
-        GetInView();
+        //GetInView();
     }
 
     void GetInView()

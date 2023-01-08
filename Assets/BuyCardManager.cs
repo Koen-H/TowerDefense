@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BuyCardManager : MonoBehaviour
 {
     Tower tower;
     [SerializeField] GameObject towerPrefab;
-    [SerializeField] Image towerImage;
-    [SerializeField] Image backgroundTexture;
+
     [SerializeField] MouseManager mouseManager;
 
     [SerializeField] TextMeshProUGUI description;
@@ -29,27 +27,8 @@ public class BuyCardManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        switch (tower.GetTowerType())
-        {
-            case TowerType.Land:
-                {
-                    backgroundTexture.sprite = Resources.Load<Sprite>("Card/BackgroundSprites/Grass");
-                    break;
-                }
-            case TowerType.Water:
-                {
-                    backgroundTexture.sprite = Resources.Load<Sprite>("Card/BackgroundSprites/Water");
-                    break;
-                }
-            case TowerType.Shore:
-                {
-                    backgroundTexture.sprite = Resources.Load<Sprite>("Card/BackgroundSprites/Shore");
-                    break;
-                }
-        }
-
+        GetComponentInChildren<TowerPicture>().SetTowerPicture(tower);
         description.text = tower.description;
-        towerImage.sprite = tower.stockSprite;
         ////For now, I suppose
         //Texture2D texture = AssetPreview.GetAssetPreview(towerPrefab);
         //Rect rec = new Rect(0, 0, texture.width, texture.height);

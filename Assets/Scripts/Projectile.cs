@@ -30,6 +30,7 @@ public class Projectile : MonoBehaviour
 
     private void Hit(Enemy enemy)
     {
+        if (pierces <= 0) return;
         enemiesHit.Add(enemy);
         enemy.Damage(damage);
         pierces--;

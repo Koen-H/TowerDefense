@@ -54,6 +54,11 @@ public class Shooter : MonoBehaviour
         target = newTarget;
     }
 
+    public void SetSpeed(float speed)
+    {
+        shootSpeed = speed;
+    }
+
     void LookAtTarget()
     {
         transform.right = target.transform.position - transform.position;
