@@ -51,7 +51,7 @@ public class PlaceTowerManager : MonoBehaviour
 
     void CheckPlacement()
     {
-        if(colliders.Count != 1 || colliders[0].tag == "Tower") {//Can't be placed
+        if (colliders.Count != 1 || colliders[0].tag == "Tower" || colliders[0].tag == "Path") {//Can't be placed
             spriteRenderer.color = Color.red;
             canBePlaced = false;
             return; 

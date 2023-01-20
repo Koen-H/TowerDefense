@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6882027895981158017}
   m_Layer: 7
   m_Name: Path
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,9 +102,6 @@ MonoBehaviour:
   isEnd: 0
   pathNodeId: 0
   pathGenerator: {fileID: 0}
-  _layer:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!61 &-6882027895981158017
 BoxCollider2D:
   m_ObjectHideFlags: 0

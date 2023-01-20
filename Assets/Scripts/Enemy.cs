@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -7,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private int health = 1;
     public Walker walker;
+    List<StatusEffect> statusEffects= new List<StatusEffect>();
 
     private void Awake()
     {
@@ -39,5 +41,14 @@ public class Enemy : MonoBehaviour
     protected void Die()
     {
         Destroy(gameObject);
+    }
+
+    public void ApplyStatusEffect(StatusEffect effect)
+    {
+        if (TryGetComponent<StatusEffect>(out effect) )
+        {
+            effect.ResetDuration();
+        }
+        else statusEffects.Add(this.AddComponent<StatusEffect>());
     }
 }

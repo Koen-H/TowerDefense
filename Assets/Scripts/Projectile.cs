@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] float pierces;//How many different enemies can it hit?
     [SerializeField] public float speed;//How many different enemies can it hit?
     [SerializeField] public float lifeSpanRange;//How far can the projectile reach from the shooter?
+    [SerializeField] private StatusEffect statusEffect;//The statusEffect to apply on the enemy.
 
     List<Enemy> enemiesHit = new List<Enemy>();
 
@@ -33,6 +34,7 @@ public class Projectile : MonoBehaviour
         if (pierces <= 0) return;
         enemiesHit.Add(enemy);
         enemy.Damage(damage);
+        if (statusEffect != null) enemy.ApplyStatusEffect(statusEffect);
         pierces--;
         if (pierces <= 0) Die();
     }

@@ -103,7 +103,10 @@ public class Range : MonoBehaviour
         return firstEnemy;
     }
 
-
+    /// <summary>
+    /// Get the farthest enemy within reach
+    /// </summary>
+    /// <returns></returns>
     Enemy GetFarthestEnemy()
     {
         Enemy farthestEnemy = null;
@@ -115,7 +118,10 @@ public class Range : MonoBehaviour
             }
         return farthestEnemy;
     }
-
+    /// <summary>
+    /// Get the closest enemy within range
+    /// </summary>
+    /// <returns></returns>
     Enemy GetNearestEnemy()
     {
         Enemy nearestEnemy = null;
@@ -127,7 +133,10 @@ public class Range : MonoBehaviour
             }
         return nearestEnemy;
     }
-
+    /// <summary>
+    /// Get the strongest enemy within range
+    /// </summary>
+    /// <returns></returns>
     Enemy GetStrongestEnemy()
     {
         Enemy strongestEnemy = null;
