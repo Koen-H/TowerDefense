@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,7 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private int health = 1;
     public Walker walker;
-    List<StatusEffect> statusEffects= new List<StatusEffect>();
+    Dictionary<Type, StatusEffect> statusEffects= new ();
 
     private void Awake()
     {
@@ -43,12 +45,23 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void ApplyStatusEffect(StatusEffect effect)
+    public void ApplyStatusEffect(StatusEffect newEffect)
     {
-        if (TryGetComponent<StatusEffect>(out effect) )
+        if (statusEffects.TryGetValue(newEffect.GetType(), out StatusEffect oldEffect))
         {
-            effect.ResetDuration();
+            oldEffect.ResetEffect(newEffect);
         }
-        else statusEffects.Add(this.AddComponent<StatusEffect>());
+        else
+        {
+            statusEffects[newEffect.GetType()] = gameObject.AddComponent(newEffect.GetType()) as StatusEffect;
+        }
+
+
+
+    }
+
+    internal void StartCoroutine(object innerEffect)
+    {
+        throw new NotImplementedException();
     }
 }

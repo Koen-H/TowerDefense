@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] public Tower tower;
-    [SerializeField] int damage;//How much damage does the projectile deal?
-    [SerializeField] float pierces;//How many different enemies can it hit?
-    [SerializeField] public float speed;//How many different enemies can it hit?
-    [SerializeField] public float lifeSpanRange;//How far can the projectile reach from the shooter?
+    public Tower tower;
+    int damage;//How much damage does the projectile deal?
+    [SerializeField]float pierces;//How many different enemies can it hit?
+    public float speed;//How many different enemies can it hit?
+    public float lifeSpanRange;//How far can the projectile reach from the shooter?
     [SerializeField] private StatusEffect statusEffect;//The statusEffect to apply on the enemy.
 
+    [SerializeField] private StatusEffectSO statusEffectSO;
+
+
     List<Enemy> enemiesHit = new List<Enemy>();
+
+    private void Awake()
+    {
+        statusEffect = gameObject.GetComponent<StatusEffect>();//Could become more in future, change to array if it's the case
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +43,7 @@ public class Projectile : MonoBehaviour
         enemiesHit.Add(enemy);
         enemy.Damage(damage);
         if (statusEffect != null) enemy.ApplyStatusEffect(statusEffect);
+        //if (statusEffectSO != null) statusEffectSO.ApplyEffect(enemy);
         pierces--;
         if (pierces <= 0) Die();
     }

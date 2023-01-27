@@ -1245,14 +1245,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - subWaves:
-    - enemies: 1
+    - enemies: 6
       amount: 20
       waveDuration: 10
       waveStartTime: 0
     - enemies: 1
       amount: 10
       waveDuration: 30
-      waveStartTime: 0
+      waveStartTime: 30
   ememiesAlive: []
   enemyPrefab: {fileID: 8696612374155324621, guid: ae354dc55c8fd444cae6d3c189c010a3, type: 3}
 --- !u!114 &237315989
