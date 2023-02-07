@@ -16,15 +16,17 @@ public class Range : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        this.transform.localScale = new Vector3(range, range, range);
-    }
+
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+    public void SetRange(float newRange)
+    {
+        range = newRange;
+        this.transform.localScale = new Vector3(range, range, range);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -79,7 +81,7 @@ public class Range : MonoBehaviour
     {
         Enemy firstEnemy = null;
         int firstEnemyNode = 0;
-        foreach (Enemy enemy in enemiesWithinRange) if (firstEnemy == null || enemy.walker.GetTargetNode() <= firstEnemyNode)
+        foreach (Enemy enemy in enemiesWithinRange) if (!enemy.ignoredByCannons && firstEnemy == null || enemy.walker.GetTargetNode() <= firstEnemyNode)
             {
                 firstEnemy = enemy;
                 //firstEnemyDistance = new Vector2(enemy.transform.position.x - this.transform.position.x, enemy.transform.position.y - this.transform.position.y).magnitude;
@@ -94,7 +96,7 @@ public class Range : MonoBehaviour
     {
         Enemy firstEnemy = null;
         int firstEnemyNode = 0;
-        foreach (Enemy enemy in enemiesWithinRange) if (firstEnemy == null || enemy.walker.GetTargetNode() >= firstEnemyNode)
+        foreach (Enemy enemy in enemiesWithinRange) if (!enemy.ignoredByCannons && firstEnemy == null || enemy.walker.GetTargetNode() >= firstEnemyNode)
             {
                 firstEnemy = enemy;
                 //firstEnemyDistance = new Vector2(enemy.transform.position.x - this.transform.position.x, enemy.transform.position.y - this.transform.position.y).magnitude;
@@ -110,7 +112,7 @@ public class Range : MonoBehaviour
     {
         Enemy farthestEnemy = null;
         float farthestEnemyDistance = 0;
-        foreach (Enemy enemy in enemiesWithinRange) if (farthestEnemy == null || new Vector2(enemy.transform.position.x - this.transform.position.x, enemy.transform.position.y - this.transform.position.y).magnitude < farthestEnemyDistance)
+        foreach (Enemy enemy in enemiesWithinRange) if (!enemy.ignoredByCannons && farthestEnemy == null || new Vector2(enemy.transform.position.x - this.transform.position.x, enemy.transform.position.y - this.transform.position.y).magnitude < farthestEnemyDistance)
             {
                 farthestEnemy = enemy;
                 farthestEnemyDistance = new Vector2(enemy.transform.position.x - this.transform.position.x, enemy.transform.position.y - this.transform.position.y).magnitude;
@@ -125,7 +127,7 @@ public class Range : MonoBehaviour
     {
         Enemy nearestEnemy = null;
         float nearestDistance = 0;
-        foreach (Enemy enemy in enemiesWithinRange) if (nearestEnemy == null || new Vector2(enemy.transform.position.x - this.transform.position.x, enemy.transform.position.y - this.transform.position.y).magnitude > nearestDistance)
+        foreach (Enemy enemy in enemiesWithinRange) if (!enemy.ignoredByCannons && nearestEnemy == null || new Vector2(enemy.transform.position.x - this.transform.position.x, enemy.transform.position.y - this.transform.position.y).magnitude > nearestDistance )
             {
                 nearestEnemy = enemy;
                 nearestDistance = new Vector2(enemy.transform.position.x - this.transform.position.x, enemy.transform.position.y - this.transform.position.y).magnitude;
@@ -140,7 +142,7 @@ public class Range : MonoBehaviour
     {
         Enemy strongestEnemy = null;
         float strongestValue = 0;
-        foreach (Enemy enemy in enemiesWithinRange) if (strongestEnemy == null || enemy.GetHealth() > strongestValue)
+        foreach (Enemy enemy in enemiesWithinRange) if (!enemy.ignoredByCannons && strongestEnemy == null || enemy.GetHealth() > strongestValue)
             {
                 strongestEnemy = enemy;
                 strongestValue = strongestEnemy.GetHealth();//Store it

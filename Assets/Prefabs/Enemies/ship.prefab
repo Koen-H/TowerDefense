@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ffb977c66673849b5fccd32b65f0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: e29e6a30209e4e444a28025a89742c3c, type: 2}
   health: 1
   walker: {fileID: 0}
 --- !u!70 &8696612374155324619

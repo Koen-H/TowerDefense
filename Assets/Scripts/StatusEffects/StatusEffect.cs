@@ -6,10 +6,12 @@ public class StatusEffect : MonoBehaviour
 {
     [SerializeField] protected float duration;
     [SerializeField] protected float strength;
+    protected Enemy enemy;
 
-    private void Awake()
+    private void Start()
     {
         if (gameObject.TryGetComponent<Enemy>(out Enemy e)) {
+            enemy = e;
             ApplyEffect();
             StartCoroutine(EffectCountdown());
         }
@@ -28,7 +30,12 @@ public class StatusEffect : MonoBehaviour
     public void ResetEffect(StatusEffect effect)
     {
         if (effect.duration > duration) duration = effect.duration;
-        Debug.Log("Effect reset");
+        if (effect.strength > strength)
+        {
+            strength = effect.strength;
+            ApplyEffect();
+        }
+            Debug.Log("Effect reset");
     }
 
     public virtual void ApplyEffect()
@@ -44,5 +51,14 @@ public class StatusEffect : MonoBehaviour
     public virtual void CopyFrom (StatusEffect effect)
     {
 
+    }
+
+    public float GetDuration()
+    {
+        return duration;
+    }
+    public float GetStrength()
+    {
+        return strength;
     }
 }

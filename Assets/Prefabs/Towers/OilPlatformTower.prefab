@@ -342,18 +342,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fef9ed1bedc2e42810c9c1249305c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerData: {fileID: 11400000, guid: bc49af9f117aada4e8ae0bec3e15a2df, type: 2}
+  upgrades:
+  - {fileID: 181133696045029122}
   targetingType: 2
   shooters:
   - {fileID: 565892435774221910}
-  range: {fileID: 565892435527804320}
-  rangeMesh: {fileID: 0}
-  upgrades:
-  - {fileID: 181133696045029122}
-  towerType: 1
-  stockSprite: {fileID: 21300000, guid: 57551a890b876d0469d4e5793b0a1539, type: 3}
-  towerName: Oil Platform
-  description: This tower pumps up oil and shoots it on the ships to slow them down.
-  price: 0
 --- !u!114 &6756648499005197679
 MonoBehaviour:
   m_ObjectHideFlags: 0

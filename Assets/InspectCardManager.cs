@@ -20,7 +20,7 @@ public class InspectCardManager : MonoBehaviour
         if (inspectingTower != null) inspectingTower.ShowRange(false);
         inspectingTower = selectedTower;
         inspectingTower.ShowRange(true);
-        GetComponentInChildren<TowerPicture>().SetTowerPicture(inspectingTower);
+        GetComponentInChildren<TowerPicture>().SetTowerPicture(inspectingTower.GetTowerData());
         ShowUpgrades();
     }
 

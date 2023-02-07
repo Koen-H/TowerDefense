@@ -9,7 +9,7 @@ public class TowerPicture : MonoBehaviour
     [SerializeField] Image backgroundTexture;
 
 
-    public void SetTowerPicture(Tower tower)
+    public void SetTowerPicture(TowerSO tower)
     {
         switch (tower.GetTowerType())
         {

@@ -11,6 +11,15 @@ public class WaveManager : MonoBehaviour
 
     [SerializeField] GameObject enemyPrefab;//For now just one
 
+    private void Start()
+    {
+        Enemy.OnEnemyDeath += OnEnemyDeath;
+    }
+
+    private void Update()
+    {
+        Debug.Log(ememiesAlive.Count);
+    }
     public void StartWave()
     {
         GameManager.Instance.pathGenerator.GeneratePath();//In the future, the path can change mid-game
@@ -33,9 +42,18 @@ public class WaveManager : MonoBehaviour
             yield return new WaitForSeconds(timeInbetweenEnemy);
         }
     }
-
-    void SpawnEnemy(EnemyType enemyType)
+    private void OnEnemyDeath(Enemy enemy)
     {
-        Instantiate(enemyPrefab);
+       ememiesAlive.Remove(enemy);
+
+    }
+
+
+    void SpawnEnemy(List<EnemySO> enemyTypes)
+    {
+        Enemy newEnemy = Instantiate(enemyPrefab).GetComponent<Enemy>();
+        int random = Random.Range(0,enemyTypes.Count);
+        newEnemy.SetEnemyData(enemyTypes[random]);
+        ememiesAlive.Add(newEnemy); 
     }
 }

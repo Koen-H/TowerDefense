@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlaceTowerManager : MonoBehaviour
 {
     Tower towerToPlace;
-    GameObject towerToPlacePrefab;
+    //GameObject towerToPlacePrefab;
     TowerType towerType;
     GameManager gameManager;
     bool isPlacing = false;
@@ -63,11 +63,11 @@ public class PlaceTowerManager : MonoBehaviour
         }
     }
 
-    public void OnTowerBuy(GameObject towerBoughtPrefab, Tower towerBought)
+    public void OnTowerBuy(GameObject towerBoughtPrefab, TowerSO towerBought)
     {
         gameObject.SetActive(true);
-        towerToPlacePrefab = towerBoughtPrefab;
-        towerToPlace = towerBought;
+        //towerToPlacePrefab = towerBoughtPrefab;
+        towerToPlace = towerBoughtPrefab.GetComponent<Tower>();//fix
         towerType = towerBought.GetTowerType();
         isPlacing = true;
         spriteRenderer.sprite = towerBought.stockSprite;

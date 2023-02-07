@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Path : MonoBehaviour
 {
-    public bool isStart = false;
-    public bool isEnd = false;
+    public bool isStart = false;//The fist node of the path, is off screen
+    public bool isFinish = false;//The finish is the gate that the ships enter through, once the ship hits
+    public bool isEnd = false;//The last node of the path, is off screen
     public int pathNodeId;
     [SerializeField] PathGenerator pathGenerator;
     LayerMask _layer;
@@ -42,11 +43,5 @@ public class Path : MonoBehaviour
         }
 
         return alignedNodes;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

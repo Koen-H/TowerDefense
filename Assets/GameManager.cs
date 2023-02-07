@@ -30,10 +30,7 @@ public class GameManager : MonoBehaviour
         pathGenerator = this.GetComponent<PathGenerator>();
         mouseManager = this.GetComponent<MouseManager>();
         waveManager = this.GetComponent<WaveManager>();
-    }
-
-    private void Start()
-    {
+        Enemy.OnEnemyDeath += Test;
     }
 
 
@@ -43,5 +40,10 @@ public class GameManager : MonoBehaviour
         {
             pathGenerator.GeneratePath();
         }
+    }
+
+    private void Test (Enemy enemy)
+    {
+        Debug.Log(enemy.GetEnemyData().goldDrop);
     }
 }

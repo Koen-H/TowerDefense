@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class BuyCardManager : MonoBehaviour
 {
-    Tower tower;
-    [SerializeField] GameObject towerPrefab;
+    [SerializeField] TowerSO tower;
+    //[SerializeField] GameObject towerPrefab;
 
     [SerializeField] MouseManager mouseManager;
 
@@ -15,15 +15,9 @@ public class BuyCardManager : MonoBehaviour
 
     private void Awake()
     {
-        if (towerPrefab == null)
+        if (tower == null)
         {
             Debug.LogError("This card doesn't have a towerPrefab!");
-            Destroy(gameObject);
-            return;
-        }
-        if (!towerPrefab.TryGetComponent(out tower))
-        {
-            Debug.LogError("This card's towerprefab isn't a tower!");
             Destroy(gameObject);
             return;
         }
@@ -51,6 +45,6 @@ public class BuyCardManager : MonoBehaviour
     {
         //TODO: if currency is not enough, return.
         mouseManager.SetMouseStatus(MouseStatus.Placing);
-        mouseManager.placeTowerManager.OnTowerBuy(towerPrefab,tower);
+        mouseManager.placeTowerManager.OnTowerBuy(tower.towerPrefab,tower);
     }
 }

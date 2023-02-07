@@ -6,30 +6,58 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Tower : MonoBehaviour
 {
-    [SerializeField] TargetingType targetingType = TargetingType.Nearest;
-    [SerializeField] List<Shooter> shooters;
-    [SerializeField] Range range;
-
-    [SerializeField] SpriteRenderer rangeMesh;
-
+    [SerializeField] TowerSO towerData;
     [SerializeField] TowerUpgrade[] upgrades;
 
 
+    [SerializeField] TargetingType targetingType = TargetingType.First;
+    [SerializeField] List<Shooter> shooters;
 
-    [Header("Placement Settings")]
-    [SerializeField] TowerType towerType = TowerType.Land;
+    SpriteRenderer rangeMesh;
+    Range range;
 
-    [Header("Card Settings")]
-    [SerializeField] public Sprite stockSprite;
-    public string towerName;
-    [TextArea]
-    public string description;
-    public float price;
+
+
+
+
+    //[Header("Placement Settings")]
+    //[SerializeField] TowerType towerType = TowerType.Land;
+
+    //[Header("Card Settings")]
+    //[SerializeField] public Sprite stockSprite;
+    //public string towerName;
+    //[TextArea]
+    //public string description;
+    //public float price;
 
     private void Awake()
     {
+        range = GetComponentInChildren<Range>();
         rangeMesh = range.GetComponent<SpriteRenderer>();
         upgrades = GetComponents<TowerUpgrade>();
+        LoadTowerData();
+    }
+
+    private void LoadTowerData()
+    {
+        if (towerData == null)
+        {
+            Debug.LogError("Tower does not have any tower data!");
+            return;
+        }
+        range.SetRange(towerData.range);
+        LoadShooterData();
+    }
+    private void LoadShooterData()
+    {
+        foreach (Shooter cannon in shooters)
+        {
+            cannon.SetData(towerData.projectilePrefab, towerData.projectileDamage, towerData.projectilePierces, towerData.projectileSplashRange, towerData.projectileSpeed, towerData.effectDuration, towerData.effectStrength, towerData.projectileRange, towerData.shootSpeed);
+        }
+    }
+    public TowerSO GetTowerData()
+    {
+        return towerData;
     }
 
     // Update is called once per frame
@@ -41,7 +69,7 @@ public class Tower : MonoBehaviour
 
     public TowerType GetTowerType()
     {
-        return towerType;
+        return towerData.towerType;
     }
 
 
@@ -60,6 +88,7 @@ public class Tower : MonoBehaviour
     }
 
    public TowerUpgrade[] GetUpgrades() { return upgrades; }
+
 }
 
 public enum TargetingType

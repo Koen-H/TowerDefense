@@ -34,7 +34,12 @@ public class FollowPath : Walker
     {
         if (path == null) path = GameManager.Instance.pathGenerator.GetPath();
         Vector2 distvec = targetNodePos - new Vector2(transform.position.x, transform.position.y);
-        if(distvec.magnitude < 0.1f) targetNode++;
+        if (distvec.magnitude < 0.1f)
+        {
+            if (path[targetNode].isFinish) this.GetComponent<Enemy>().OnReachedFinish();
+            if (path[targetNode].isEnd) this.GetComponent<Enemy>().OnReachedEnd();
+            targetNode++;
+        }
            
         targetNodePos = path[targetNode].transform.position;
     }

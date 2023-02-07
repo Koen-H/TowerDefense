@@ -12,3 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5ac1cfee3795a4db87876cde669917, type: 3}
   m_Name: CannonTower
   m_EditorClassIdentifier: 
+  towerPrefab: {fileID: 565892436898469243, guid: f88aed10fbf703c44b4d5c08ed177807, type: 3}
+  towerType: 0
+  range: 3
+  projectilePrefab: {fileID: 863602255469673086, guid: a9a170090ee7bf04c95a4ef50f6c45ff, type: 3}
+  projectileDamage: 1
+  projectilePierces: 1
+  projectileSplashRange: 0
+  projectileSpeed: 500
+  effectDuration: 0
+  effectStrength: 0
+  projectileRange: 1
+  shootSpeed: 2
+  stockSprite: {fileID: 21300000, guid: 0e69b3fc42045a548923b75eae89367d, type: 3}
+  towerName: Cannon Tower
+  description: A basic cannon tower, it shoots cannons on a decent range for a good
+    amount of damage.
+  price: 0

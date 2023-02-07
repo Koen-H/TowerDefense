@@ -10,7 +10,16 @@ public class Walker : MonoBehaviour
     [SerializeField] protected int targetNode = 0;
     [SerializeField] protected Vector2 targetNodePos;
     protected List<Path> path;
-    
+
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
+    }
 
     public int GetTargetNode()
     {

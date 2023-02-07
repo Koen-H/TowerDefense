@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e8b6fc44cfe3549b03a8e4df2cdae0, type: 3}
+  m_Name: dinghyLarge
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 8696612374155324621, guid: ae354dc55c8fd444cae6d3c189c010a3, type: 3}
+  defaultHealth: 6
+  goldDrop: 0
+  speed: 0.3
+  rotSpeed: 75
+  sprites:
+  - {fileID: 21300000, guid: 4f0e9d67f09f5274b98c69858b84e969, type: 3}
+  - {fileID: 21300000, guid: e46e21f5a1ab1d44a8fcd92c055f46cc, type: 3}
+  - {fileID: 21300000, guid: 01d432fc3726c7b4f89967002a8c6377, type: 3}

@@ -50,8 +50,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 0}
   pierces: 1
-  speed: 0
-  lifeSpanRange: 0
   statusEffect: {fileID: 0}
   statusEffectSO: {fileID: 11400000, guid: 4843211222dd7bc4cab3508729cd4d35, type: 2}
 --- !u!114 &3308139903491594307
@@ -68,7 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 5
   strength: 1
-  effectColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 0}
+  effectColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
 --- !u!212 &6666808822119530409
 SpriteRenderer:
   m_ObjectHideFlags: 0

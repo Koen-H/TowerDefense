@@ -343,18 +343,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fef9ed1bedc2e42810c9c1249305c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerData: {fileID: 11400000, guid: 9b77055e39e3059419966e973a6a3c88, type: 2}
+  upgrades:
+  - {fileID: 181133696045029122}
   targetingType: 2
   shooters:
   - {fileID: 565892435774221910}
   range: {fileID: 565892435527804320}
-  rangeMesh: {fileID: 0}
-  upgrades:
-  - {fileID: 181133696045029122}
-  towerType: 0
-  stockSprite: {fileID: 21300000, guid: 0e69b3fc42045a548923b75eae89367d, type: 3}
-  towerName: 
-  description: 
-  price: 0
 --- !u!114 &2513775789753812462
 MonoBehaviour:
   m_ObjectHideFlags: 0
