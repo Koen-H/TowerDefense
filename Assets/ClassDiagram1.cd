@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EnemySO">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AggAAAEAAAAAAAQAAAAAAAAAgAAAAQAAAAAAAICAAAA=</HashCode>
+      <FileName>Assets\Scriptable Objects\Enemies\EnemySO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelStatsSO">
+    <Position X="16" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scriptable Objects\LevelStats\LevelStatsSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerSO">
+    <Position X="9" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAIAAYACBAAYABAAAAAIIABAABQAAgEAAAAAQA=</HashCode>
+      <FileName>Assets\Scriptable Objects\Towers\TowerSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BuyCardManager">
+    <Position X="18" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIRAAAIQAAAgAAAMAAAIBAAAAAAAQBAAAAQAAABAEA=</HashCode>
+      <FileName>Assets\Scripts\BuyCardManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StayInCanvas">
+    <Position X="24.25" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAEI=</HashCode>
+      <FileName>Assets\Scripts\Deprecated\StayInCanvas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enemy">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABBCACAQCAAQCAxAAAGAAQAAAAAAAAEAIAAAKAAAAg=</HashCode>
+      <FileName>Assets\Scripts\Enemy\Enemy.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="enemyData" />
+      <Field Name="walker" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="statusEffects" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Path">
+    <Position X="2.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAABAIAABAAgACAAAAAAUAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\Path.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FollowPath">
+    <Position X="5.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\Walkers\FollowPath.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Walker">
+    <Position X="6" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAiAAAAAAAAAAAAAAACABAAgBEYAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\Walkers\Walker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FollowMouse">
+    <Position X="22" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\FollowMouse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager">
+    <Position X="7.25" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQRHSAAgACCAAACgAAAAAAAAAAAAAAAAQAAEAEAAAEg=</HashCode>
+      <FileName>Assets\Scripts\Gameflow\GameManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="pathGenerator" />
+      <Field Name="mouseManager" />
+      <Field Name="waveManager" />
+      <Field Name="conditionManager" />
+      <Field Name="startOfLevelStats" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MouseManager">
+    <Position X="4.75" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABgAAAACIAAAAAEAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameflow\MouseManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="placeTowerManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PathGenerator">
+    <Position X="5" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAEAEAACAAAAAAACAAAAAAAAAACAAIA=</HashCode>
+      <FileName>Assets\Scripts\Gameflow\PathGenerator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="path" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="PlaceTowerManager">
+    <Position X="1.75" Y="16" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AEQEAAKIACABASIAEAAAAAAAIEAAAAAEAAAAEAIAAEA=</HashCode>
+      <FileName>Assets\Scripts\Gameflow\PlaceTowerManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="gameManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SubWave">
+    <Position X="15.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAABAAAgAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameflow\SubWave.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Wave">
+    <Position X="12.75" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAACAAAAAAAABAAAAAgAAAABAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameflow\Wave.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="subWaves" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="WaveManager">
+    <Position X="10" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAFCIEIACQAAAAAAQAEAAAAAAAAAACAAABAAJAQABA=</HashCode>
+      <FileName>Assets\Scripts\Gameflow\WaveManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="waves" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="InspectCardManager">
+    <Position X="22.75" Y="8.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAEQSAAAAQAQCAAAAEAAgBAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\InspectCardManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="upgradeCardItems" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="InspectTowerManager">
+    <Position X="25.75" Y="8.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAIACAAAAAAAACAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\InspectTowerManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="inspectCard" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ShopManager">
+    <Position X="19.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAABAKAQACgAAAAAAABEAAAAEAAAAAIEAAAAgAIBAEA=</HashCode>
+      <FileName>Assets\Scripts\ShopManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="levelStats" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SlownesEffect">
+    <Position X="0.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAKAAAAAAAEAAACAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Assets\Scripts\StatusEffects\SlownesEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StatusEffect">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAIhACAAAKAAAAAABAAAACAAAAAAQAgAAAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\StatusEffects\StatusEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projectile">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQgAAAADQAgAAgAAIAEAAAEMAAAQECAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Tower\Projectile.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="tower" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Shooter">
+    <Position X="15.75" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQQEgCJACIABBAA5CBAFBAAABABABASAEAAAAAAAEI=</HashCode>
+      <FileName>Assets\Scripts\Tower\Shooter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tower">
+    <Position X="11.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAgCIAAAACEAAhIAAABAAACAQBICAAMgAAAAEAEA=</HashCode>
+      <FileName>Assets\Scripts\Tower\Tower.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="towerData" />
+      <Field Name="range" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="upgrades" />
+      <Field Name="shooters" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="IncreaseAOE">
+    <Position X="13.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAgAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Tower\Upgrades\Tower Upgrades\IncreaseAOE.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IncreaseDamage">
+    <Position X="11.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAgAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Tower\Upgrades\Tower Upgrades\IncreaseDamage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IncreaseEffectDuration">
+    <Position X="15.25" Y="10.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAEAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Tower\Upgrades\Tower Upgrades\IncreaseEffectDuration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IncreaseEffectStrength">
+    <Position X="7.5" Y="10.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAACAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Tower\Upgrades\Tower Upgrades\IncreaseEffectStrength.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IncreaseRange">
+    <Position X="17.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Tower\Upgrades\Tower Upgrades\IncreaseRange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IncreaseSpeed">
+    <Position X="9.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAgAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Tower\Upgrades\Tower Upgrades\IncreaseSpeed.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerUpgrade" Collapsed="true">
+    <Position X="11.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAQAAAAACAAAAAAMAAhAAAAACAAAAAAAAAQCAAABAI=</HashCode>
+      <FileName>Assets\Scripts\Tower\Upgrades\Tower Upgrades\TowerUpgrade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConditionManager">
+    <Position X="9.25" Y="18.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EAAACAAAAAAAAAAAAAAAAAAAAAAAAAgAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\ConditionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GoldAddedUI">
+    <Position X="24" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIABAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\UI\GoldAddedUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GoldUI">
+    <Position X="22.25" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAIAAAAAAAAAAAAICAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\UI\GoldUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerPicture">
+    <Position X="20.25" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAgAA=</HashCode>
+      <FileName>Assets\Scripts\UI\TowerPicture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UpgradeCartItem">
+    <Position X="20" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCAgAAAAAAAJAAAABAAAAAQAAAAAACAAAgAAADAAA=</HashCode>
+      <FileName>Assets\Scripts\UpgradeCartItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="towerUpgrade" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="waveButtonManager">
+    <Position X="12.5" Y="15.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAABQABAAOAAAAAAAAAAAAAAAABAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\waveButtonManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="waveManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Range">
+    <Position X="18" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAQAgCIAAAAACAAAFAAAAAAAEAAAYAAABoAAAACAEA=</HashCode>
+      <FileName>Assets\Scripts\Tower\Range.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="GameCondition">
+    <Position X="11.25" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAACAAAAAAAAAAAAAAAAIAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameflow\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MouseStatus">
+    <Position X="16" Y="19" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAABAAAAAAAIAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameflow\MouseManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TargetingType">
+    <Position X="14.25" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAQAAAAAAAAAAABAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Tower\Tower.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TowerType">
+    <Position X="13.25" Y="20.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAgAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Tower\Tower.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

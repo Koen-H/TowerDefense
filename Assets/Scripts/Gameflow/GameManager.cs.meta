@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: bd9be741ed47e404199dab7e21c7a62a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pathGenerator: {instanceID: 0}
+  - mouseManager: {instanceID: 0}
+  - waveManager: {instanceID: 0}
+  - startOfLevelStats: {fileID: 11400000, guid: dab4afde128eb6d4eb48f64d766ca2b7, type: 2}
+  - healthDisplay: {instanceID: 0}
+  - conditionManager: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

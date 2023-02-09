@@ -13,25 +13,26 @@ public class SlownesEffect : StatusEffect
     /// </summary>
     public override void ApplyEffect()
     {
-        Debug.LogWarning("should be slow");
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color= effectColor;
         float tenPercentSpeed = enemy.walker.GetSpeed() / 10;
         float slowedSpeed = strength >= 10 ? tenPercentSpeed : System.Math.Abs(tenPercentSpeed * (10 - strength));//If the result is 0 or lower, it becomes 10%
         enemy.walker.SetSpeed(slowedSpeed);
-        Debug.Log($"{tenPercentSpeed}, {slowedSpeed}, {strength}");
 
     }
 
     public override void RemoveEffect()
     {
-        Debug.LogWarning("should no longer be slow");
         spriteRenderer.color = new Color(255,255,255);
         enemy.walker.SetSpeed(enemy.GetEnemyData().speed);
         enemy.statusEffects.Remove(this.GetType());
         Destroy(this);
     }
 
+    /// <summary>
+    /// Copies the values from another effect
+    /// </summary>
+    /// <param name="effect"></param>
     public override void CopyFrom(StatusEffect effect)
     {
         if (!(effect is SlownesEffect))
@@ -45,7 +46,6 @@ public class SlownesEffect : StatusEffect
         effectColor = copyFrom.GetEffectColor();
         duration = copyFrom.GetDuration();
         strength = copyFrom.GetStrength();
-        Debug.Log($"Copied {strength} from projectile!");
     }
 
     public Color GetEffectColor()

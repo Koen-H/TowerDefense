@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7248956d658a15142a7d0bb59992ee01, type: 3}
   m_Name: DefaultLevelStats
   m_EditorClassIdentifier: 
-  starterGold: 5000
+  starterGold: 62000
   starterHealth: 30
