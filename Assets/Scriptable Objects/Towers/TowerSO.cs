@@ -38,7 +38,7 @@ public class TowerSO : ScriptableObject
     public string towerName;
     [TextArea]
     public string description;
-    public float price;
+    public int price;
 
 
     public float GetRange()

@@ -11,7 +11,7 @@ public class Shooter : MonoBehaviour
     bool isShooting = false;
 
     private GameObject projectilePrefab;//The projectile that will be shot
-    private int projectileDamage;//
+    private float projectileDamage;//
     private int projectilePierces;//
     private float splashrange;
     private float projectileSpeed;//How fast does the projectile fly?
@@ -88,6 +88,22 @@ public class Shooter : MonoBehaviour
     public void SetSpeed(float speed)
     {
         shootSpeed = speed;
+    }
+    public void SetDamage(float damage)
+    {
+        projectileDamage = damage;
+    }
+    public void SetEffectStrength(float newEffectStrength)
+    {
+        projectileEffectStrength = newEffectStrength;
+    }
+    public void SetEffectDuration(float newEffectDuration)
+    {
+        projectileEffectDuration = newEffectDuration;
+    }
+    public void SetAOE(float newSplashrange)
+    {
+        splashrange = newSplashrange;
     }
 
     void LookAtTarget()

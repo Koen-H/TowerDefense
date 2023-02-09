@@ -8,9 +8,12 @@ public class InspectCardManager : MonoBehaviour
     Tower inspectingTower;
     [SerializeField] GameObject upgradesListObj;
     [SerializeField] GameObject upgradeCardItemPrefab;
+    List<UpgradeCartItem> upgradeCardItems = new List<UpgradeCartItem>();
+    public int currentBalance;
 
-    private void Awake()
+    private void Start()
     {
+        ShopManager.OnBalanceChange += SetCurrentBalance;
         gameObject.SetActive(false);
     }
 
@@ -21,6 +24,7 @@ public class InspectCardManager : MonoBehaviour
         inspectingTower = selectedTower;
         inspectingTower.ShowRange(true);
         GetComponentInChildren<TowerPicture>().SetTowerPicture(inspectingTower.GetTowerData());
+        upgradeCardItems.Clear();
         ShowUpgrades();
     }
 
@@ -31,8 +35,18 @@ public class InspectCardManager : MonoBehaviour
         TowerUpgrade[] towerUpgrades = inspectingTower.GetUpgrades();
         foreach(TowerUpgrade towerUpgrade in towerUpgrades)
         {
-            Instantiate(upgradeCardItemPrefab, upgradesListObj.transform).GetComponent<UpgradeCartItem>().SetUpgrade(towerUpgrade);
+
+            UpgradeCartItem upgradeCardItem = Instantiate(upgradeCardItemPrefab, upgradesListObj.transform).GetComponent<UpgradeCartItem>();
+            upgradeCardItem.SetUpgrade(towerUpgrade);
+            upgradeCardItem.UpdateUpgradeButton(currentBalance);
+            upgradeCardItems.Add(upgradeCardItem);
         }
+    }
+
+    private void SetCurrentBalance(int _currentBalance)
+    {
+        currentBalance = _currentBalance;
+        foreach(UpgradeCartItem upgradeCardItem in upgradeCardItems) upgradeCardItem.UpdateUpgradeButton(currentBalance);
     }
 
     public void CloseCard()

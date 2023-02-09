@@ -5,19 +5,21 @@ using UnityEngine;
 public class MouseManager : MonoBehaviour
 {
     MouseStatus mouseStatus = MouseStatus.Idle;
-    public PlaceTowerManager placeTowerManager;
+    [SerializeField] PlaceTowerManager placeTowerManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        BuyCardManager.OnTowerBuy += OnTowerBuy;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTowerBuy(TowerSO tower)
     {
-        
+        SetMouseStatus(MouseStatus.Placing);
+        placeTowerManager.OnTowerBuy(tower);
     }
+
 
     public void SetMouseStatus(MouseStatus newStatus)
     {

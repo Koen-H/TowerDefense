@@ -86,6 +86,28 @@ public class Tower : MonoBehaviour
     {
         foreach (Shooter cannon in shooters) cannon.SetSpeed(speed);
     }
+    public void SetRange(float newRange)
+    {
+        range.SetRange(newRange);
+    }
+    public void SetDamage(float damage)
+    {
+        foreach (Shooter cannon in shooters) cannon.SetDamage(damage);
+    }
+
+    public void SetEffectStrength(float newEffectStrength)
+    {
+        foreach (Shooter cannon in shooters) cannon.SetEffectStrength(newEffectStrength);
+    }
+
+    public void SetEffectDuration(float newDuration)
+    {
+        foreach (Shooter cannon in shooters) cannon.SetEffectDuration(newDuration);
+    }
+    public void SetAOE(float newAOE)
+    {
+        foreach (Shooter cannon in shooters) cannon.SetAOE(newAOE);
+    }
 
    public TowerUpgrade[] GetUpgrades() { return upgrades; }
 

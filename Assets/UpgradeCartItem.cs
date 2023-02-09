@@ -14,7 +14,10 @@ public class UpgradeCartItem : MonoBehaviour
 
     [SerializeField] Button upgradeButton;
     [SerializeField] TextMeshProUGUI buttonText;
+
+    public static event System.Action<int> OnTowerUpgrade;
     
+
     public void SetUpgrade(TowerUpgrade _towerUpgrade)
     {
         towerUpgrade = _towerUpgrade;
@@ -26,13 +29,38 @@ public class UpgradeCartItem : MonoBehaviour
         nameText.text = towerUpgrade.GetName();
         descriptionText.text = towerUpgrade.GetDescription();
         lvlText.text = towerUpgrade.GetLVL().ToString();
-        upgradeButton.onClick.AddListener(() => UpgradeButtonClicked());
-        buttonText.text = towerUpgrade.GetCost().ToString();
+        
+
+    }
+
+    public void UpdateUpgradeButton(int currentBalance)
+    {
+        upgradeButton.onClick.RemoveAllListeners();
+        if (towerUpgrade.GetLVL() >= towerUpgrade.GetAmountOfUpgrades() - 1)
+        {
+            buttonText.text = "MAX LVL";
+        }
+        else
+        {
+            buttonText.text = towerUpgrade.GetCost().ToString();
+            if (currentBalance >= towerUpgrade.GetCost())
+            {
+                buttonText.color = Color.black;
+                upgradeButton.onClick.AddListener(() => UpgradeButtonClicked());
+            }
+            else
+            {
+                buttonText.color = Color.red;
+            }
+        }
     }
 
     void UpgradeButtonClicked()
     {
         //If enough money,
         towerUpgrade.Upgrade();
+        UpdateCard();
+        OnTowerUpgrade?.Invoke(towerUpgrade.GetCostOfLVL(towerUpgrade.GetLVL()));
+
     }
 }

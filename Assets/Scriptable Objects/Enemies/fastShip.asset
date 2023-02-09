@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1e8b6fc44cfe3549b03a8e4df2cdae0, type: 3}
-  m_Name: ship
+  m_Name: fastShip
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8696612374155324621, guid: ae354dc55c8fd444cae6d3c189c010a3, type: 3}
   defaultHealth: 15
-  goldDrop: 25
-  speed: 0.5
-  rotSpeed: 75
+  goldDrop: 50
+  speed: 0.75
+  rotSpeed: 100
   sprites:
-  - {fileID: 21300000, guid: 0c342a0c218e90f4a9dc525d49d63ea4, type: 3}
-  - {fileID: 21300000, guid: 55786df72ed580c4e96286aff2e9ec0c, type: 3}
-  - {fileID: 21300000, guid: 351c7f9643f768b42899c580ff6f8648, type: 3}
+  - {fileID: 21300000, guid: 01088ac4bf296ce43acc8e91f8b94b7a, type: 3}
+  - {fileID: 21300000, guid: 1e5556923ecb11d468b4773e5c0b0110, type: 3}
+  - {fileID: 21300000, guid: 7bf5e8c3d3e4542419ddfe4f6fe018e4, type: 3}

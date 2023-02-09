@@ -9,13 +9,14 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] EnemySO enemyData;
     [SerializeField]
-    int health = 1;
+    float health = 1;
     public Walker walker;
     public Dictionary<Type, StatusEffect> statusEffects= new ();
     private SpriteRenderer spriteRenderer;
     public bool ignoredByCannons;
 
     public static event System.Action<Enemy> OnEnemyDeath;
+    public static event System.Action<EnemySO> OnFinish;
 
     private void Start()
     {
@@ -44,22 +45,23 @@ public class Enemy : MonoBehaviour
         enemyData = _enemyData;
     }
 
-    public int GetHealth()
+    public float GetHealth()
     {
         return health;
     }
 
-    public void OnReachedFinish()
+    public void OnReachedFinish()//the enemy officially made it and the health drops, but stays alive for the visual aspect
     {
         ignoredByCannons = true;
-        //TODO: Decrease health.
+        OnFinish.Invoke(enemyData);
+        
     }
     public void OnReachedEnd()
     {
-        Destroy(gameObject);
+        Die();//Also giving the player gold because I'm nice and they most likely need it if the enemy reached this point because they suck at the game.
     }
 
-    public void Damage(int damage)
+    public void Damage(float damage)
     {
         health -= damage;
         if (health <= 0) Die();
@@ -76,13 +78,13 @@ public class Enemy : MonoBehaviour
 
     protected void Die()
     {
-        //TODO: Add gold
         OnEnemyDeath?.Invoke(this);
         Destroy(gameObject);
     }
 
     public void ApplyStatusEffect(StatusEffect newEffect)
     {
+        Debug.Log($"newEffect has a strength of { newEffect.GetStrength()}");
         if (statusEffects.TryGetValue(newEffect.GetType(), out StatusEffect oldEffect))
         {
             oldEffect.ResetEffect(newEffect);
@@ -95,10 +97,5 @@ public class Enemy : MonoBehaviour
 
 
 
-    }
-
-    internal void StartCoroutine(object innerEffect)
-    {
-        throw new NotImplementedException();
     }
 }

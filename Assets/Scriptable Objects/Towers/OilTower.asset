@@ -28,4 +28,4 @@ MonoBehaviour:
   towerName: Oil Platform
   description: This oil paltform will pump up oil and shoot it at incoming ships
     to slow them down!
-  price: 0
+  price: 300

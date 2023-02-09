@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class IncreaseRange : TowerUpgrade
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] float[] rangePerLevel;
 
-    // Update is called once per frame
-    void Update()
+    public override void Upgrade()
     {
-        
+        if (rangePerLevel.Length <= upgradeLVL + 1) return;
+        upgradeLVL++;
+        tower.SetRange(rangePerLevel[upgradeLVL]);
+        Debug.Log("This has been upgraded");
+    }
+    public override int GetAmountOfUpgrades()
+    {
+        return rangePerLevel.Length;
     }
 }

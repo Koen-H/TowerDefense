@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,12 @@ public class GameManager : MonoBehaviour
     public PathGenerator pathGenerator;
     public MouseManager mouseManager;
     public WaveManager waveManager;
+
+    [SerializeField] LevelStatsSO startOfLevelStats;
+    int health;
+    [SerializeField] TextMeshProUGUI healthDisplay;
+    [SerializeField] ConditionManager conditionManager;
+    public GameCondition currentGameCondition = GameCondition.Playing;
 
     public static GameManager Instance { get {
             if (_instance == null) Debug.LogError("GameManager is null");
@@ -30,9 +37,14 @@ public class GameManager : MonoBehaviour
         pathGenerator = this.GetComponent<PathGenerator>();
         mouseManager = this.GetComponent<MouseManager>();
         waveManager = this.GetComponent<WaveManager>();
-        Enemy.OnEnemyDeath += Test;
     }
-
+    private void Start()
+    {
+        Enemy.OnFinish += OnEnemyFinish;
+        WaveManager.OnAllWavesCompleted+=DoGameWin;
+        health = startOfLevelStats.starterHealth;
+        healthDisplay.text = health.ToString();
+    }
 
     private void Update()
     {
@@ -42,8 +54,32 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Test (Enemy enemy)
+    private void OnEnemyFinish(EnemySO enemy)
     {
-        Debug.Log(enemy.GetEnemyData().goldDrop);
+        health -= enemy.damageOnGate;
+        if (health <= 0) DoGameOver();
+        healthDisplay.text = health.ToString();
     }
+    private void DoGameOver()
+    {
+        health = 0;
+        currentGameCondition = GameCondition.Lost;
+        conditionManager.SetCondition(currentGameCondition);
+    }
+
+    public void DoGameWin()
+    {
+        currentGameCondition = GameCondition.Won;
+        conditionManager.SetCondition(currentGameCondition);
+    }
+
+
+}
+
+public enum GameCondition
+{
+    Playing,
+    Won,
+    Lost,
+    Paused
 }

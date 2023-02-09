@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlaceTowerManager : MonoBehaviour
 {
-    Tower towerToPlace;
-    //GameObject towerToPlacePrefab;
+    TowerSO towerToPlace;
     TowerType towerType;
     GameManager gameManager;
     bool isPlacing = false;
@@ -14,13 +13,14 @@ public class PlaceTowerManager : MonoBehaviour
     
     [SerializeField] List<GameObject> colliders = new List<GameObject>();
     SpriteRenderer spriteRenderer;
+    public static event System.Action<TowerSO> OnTowerPlace;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         range = transform.Find("Range").gameObject;
     }
-    private void Start()
+    void Start()
     {
         gameManager = GameManager.Instance;
     }
@@ -28,7 +28,6 @@ public class PlaceTowerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (isPlacing)
         {
             CheckPlacement();
@@ -36,7 +35,6 @@ public class PlaceTowerManager : MonoBehaviour
             if (Input.GetMouseButtonDown(1)) CancelTower();
 
         }
-
     }
 
 
@@ -63,11 +61,11 @@ public class PlaceTowerManager : MonoBehaviour
         }
     }
 
-    public void OnTowerBuy(GameObject towerBoughtPrefab, TowerSO towerBought)
+    public void OnTowerBuy(TowerSO towerBought)
     {
         gameObject.SetActive(true);
         //towerToPlacePrefab = towerBoughtPrefab;
-        towerToPlace = towerBoughtPrefab.GetComponent<Tower>();//fix
+        towerToPlace = towerBought;
         towerType = towerBought.GetTowerType();
         isPlacing = true;
         spriteRenderer.sprite = towerBought.stockSprite;
@@ -77,8 +75,8 @@ public class PlaceTowerManager : MonoBehaviour
 
     void PlaceTower()
     {
-        //TODO: Remove currency from balance
-        Instantiate(towerToPlace,transform.position,Quaternion.identity);
+        OnTowerPlace.Invoke(towerToPlace);
+        Instantiate(towerToPlace.towerPrefab,transform.position,Quaternion.identity);
         isPlacing = false;
         canBePlaced = false;
         gameManager.mouseManager.SetMouseStatus(MouseStatus.Idle);

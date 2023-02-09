@@ -28,4 +28,4 @@ MonoBehaviour:
   towerName: Cannon Tower
   description: A basic cannon tower, it shoots cannons on a decent range for a good
     amount of damage.
-  price: 0
+  price: 200

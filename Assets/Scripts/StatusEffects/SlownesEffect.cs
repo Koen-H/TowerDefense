@@ -19,6 +19,7 @@ public class SlownesEffect : StatusEffect
         float tenPercentSpeed = enemy.walker.GetSpeed() / 10;
         float slowedSpeed = strength >= 10 ? tenPercentSpeed : System.Math.Abs(tenPercentSpeed * (10 - strength));//If the result is 0 or lower, it becomes 10%
         enemy.walker.SetSpeed(slowedSpeed);
+        Debug.Log($"{tenPercentSpeed}, {slowedSpeed}, {strength}");
 
     }
 
@@ -44,7 +45,7 @@ public class SlownesEffect : StatusEffect
         effectColor = copyFrom.GetEffectColor();
         duration = copyFrom.GetDuration();
         strength = copyFrom.GetStrength();
-
+        Debug.Log($"Copied {strength} from projectile!");
     }
 
     public Color GetEffectColor()

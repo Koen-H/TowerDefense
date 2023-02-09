@@ -235,10 +235,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  projectilePrefab: {fileID: 863602255469673086, guid: a9a170090ee7bf04c95a4ef50f6c45ff, type: 3}
-  projectileSpeed: 500
   shootSpeed: 2
-  shootRange: 1.5
+  projectileRange: 0
 --- !u!1 &565892436898469243
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +347,6 @@ MonoBehaviour:
   targetingType: 2
   shooters:
   - {fileID: 565892435774221910}
-  range: {fileID: 565892435527804320}
 --- !u!114 &2513775789753812462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,9 +360,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeName: Damage
-  baseCost: 0
-  costMultiplier: 0
+  baseCost: 50
+  costMultiplier: 2
   upgradeLVL: 0
+  damagePerLevel:
+  - 1
+  - 1.25
+  - 1.75
+  - 2.25
+  - 2.75
+  - 3
 --- !u!114 &6756648499005197679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,15 +383,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeName: Speed
-  baseCost: 0
-  costMultiplier: 0
+  baseCost: 30
+  costMultiplier: 2
   upgradeLVL: 0
   speedPerLevel:
-  - 0
   - 2
-  - 5
-  - 8
-  - 10
+  - 1.75
+  - 1.5
+  - 1
+  - 0.75
+  - 0.5
 --- !u!114 &181133696045029122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,9 +406,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeName: Range
-  baseCost: 0
-  costMultiplier: 0
+  baseCost: 30
+  costMultiplier: 2
   upgradeLVL: 0
+  rangePerLevel:
+  - 3
+  - 3.25
+  - 3.5
+  - 3.75
+  - 4.5
+  - 5.5
 --- !u!58 &565892436898469239
 CircleCollider2D:
   m_ObjectHideFlags: 0

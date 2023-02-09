@@ -5,14 +5,17 @@ using UnityEngine;
 public class IncreaseDamage : TowerUpgrade
 {
     // Start is called before the first frame update
-    void Start()
+    [SerializeField] float[] damagePerLevel;
+
+    public override void Upgrade()
     {
-        
+        if (damagePerLevel.Length <= upgradeLVL + 1) return;
+        upgradeLVL++;
+        tower.SetDamage(damagePerLevel[upgradeLVL]);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override int GetAmountOfUpgrades()
     {
-        
+        return damagePerLevel.Length;
     }
 }

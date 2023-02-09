@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 2513775789753812462}
   - component: {fileID: 6756648499005197679}
   - component: {fileID: 181133696045029122}
+  - component: {fileID: 8634871593823910319}
   - component: {fileID: 565892436898469239}
   - component: {fileID: 565892436898469238}
   m_Layer: 6
@@ -360,9 +361,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeName: Damage
-  baseCost: 0
-  costMultiplier: 0
+  baseCost: 20
+  costMultiplier: 2.5
   upgradeLVL: 0
+  damagePerLevel:
+  - 1
+  - 1.25
+  - 1.5
+  - 1.75
+  - 2
+  - 2.5
 --- !u!114 &6756648499005197679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,15 +384,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeName: Speed
-  baseCost: 0
-  costMultiplier: 0
+  baseCost: 35
+  costMultiplier: 1.5
   upgradeLVL: 0
   speedPerLevel:
-  - 0
-  - 2
   - 5
-  - 8
-  - 10
+  - 4.5
+  - 4
+  - 3.5
+  - 3
+  - 2.5
 --- !u!114 &181133696045029122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,9 +407,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeName: Range
-  baseCost: 0
-  costMultiplier: 0
+  baseCost: 25
+  costMultiplier: 2
   upgradeLVL: 0
+  rangePerLevel:
+  - 4
+  - 4.25
+  - 4.5
+  - 4.75
+  - 5
+  - 6
+--- !u!114 &8634871593823910319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565892436898469243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eddeb1527ea6144bb893b25fd78fa2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeName: AOE
+  baseCost: 40
+  costMultiplier: 2
+  upgradeLVL: 0
+  AOEPerLevel:
+  - 0.25
+  - 0.75
+  - 1.25
+  - 1.75
+  - 2.25
+  - 3
 --- !u!58 &565892436898469239
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -15,14 +15,6 @@ public class Range : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Start is called before the first frame update
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void SetRange(float newRange)
     {
         range = newRange;
@@ -81,9 +73,15 @@ public class Range : MonoBehaviour
     {
         Enemy firstEnemy = null;
         int firstEnemyNode = 0;
-        foreach (Enemy enemy in enemiesWithinRange) if (!enemy.ignoredByCannons && firstEnemy == null || enemy.walker.GetTargetNode() <= firstEnemyNode)
+        float firstEnemyNodeDistance = 10000;
+        foreach (Enemy enemy in enemiesWithinRange) if (!enemy.ignoredByCannons && (firstEnemy == null || enemy.walker.GetTargetNodeID() >= firstEnemyNode))
             {
+                //If they share the same target node, check which one is closer to it
+                if (firstEnemyNode == enemy.walker.GetTargetNodeID() && firstEnemyNodeDistance < (enemy.transform.position - enemy.walker.GetTargetNode().transform.position).magnitude) continue;
                 firstEnemy = enemy;
+                firstEnemyNode = firstEnemy.walker.GetTargetNodeID();
+                firstEnemyNodeDistance = (firstEnemy.transform.position - firstEnemy.walker.GetTargetNode().transform.position).magnitude;
+
                 //firstEnemyDistance = new Vector2(enemy.transform.position.x - this.transform.position.x, enemy.transform.position.y - this.transform.position.y).magnitude;
             }
         return firstEnemy;
@@ -96,7 +94,7 @@ public class Range : MonoBehaviour
     {
         Enemy firstEnemy = null;
         int firstEnemyNode = 0;
-        foreach (Enemy enemy in enemiesWithinRange) if (!enemy.ignoredByCannons && firstEnemy == null || enemy.walker.GetTargetNode() >= firstEnemyNode)
+        foreach (Enemy enemy in enemiesWithinRange) if (!enemy.ignoredByCannons && firstEnemy == null || enemy.walker.GetTargetNodeID() >= firstEnemyNode)
             {
                 firstEnemy = enemy;
                 //firstEnemyDistance = new Vector2(enemy.transform.position.x - this.transform.position.x, enemy.transform.position.y - this.transform.position.y).magnitude;

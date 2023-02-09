@@ -4,23 +4,35 @@ using UnityEngine;
 
 public class TowerUpgrade : MonoBehaviour
 {
+    protected Tower tower;
     [SerializeField] protected string upgradeName;
     [TextArea]protected string description;
-    [SerializeField] protected float baseCost;
+    [SerializeField] protected int baseCost;
     [SerializeField] protected float costMultiplier;
     [SerializeField] protected int upgradeLVL = 0;
 
 
 
-
+    public void Start() { tower = GetComponent<Tower>(); }
     public string GetName() { return upgradeName; }
     public string GetDescription() { return description; }
-    public float GetLVL() { return upgradeLVL; }
-    public float GetCost() { return baseCost + (costMultiplier * upgradeLVL); }
+    public int GetLVL() { return upgradeLVL; }
+    public int GetCost() {return (int)(baseCost * (costMultiplier * (upgradeLVL + 1))); }//plus one as we are calculating the cost of the NEXT level
+    /// <summary>
+    /// Returns the cost of the requested lvl
+    /// </summary>
+    /// <returns></returns>
+    public int GetCostOfLVL(int level) { return (int)(baseCost * (costMultiplier * (level))); }
 
     public virtual void Upgrade()
     {
         upgradeLVL++;
-        Debug.Log("This has been upgraded");
+        Debug.Log("This has been upgraded, but no upgrade is implemented");
+    }
+
+    public virtual int GetAmountOfUpgrades()
+    {
+        Debug.LogError("There is no max amount of upgrades set for this upgrade!");
+        return 0;
     }
 }

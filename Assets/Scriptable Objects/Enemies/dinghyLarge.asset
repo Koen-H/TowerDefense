@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8696612374155324621, guid: ae354dc55c8fd444cae6d3c189c010a3, type: 3}
   defaultHealth: 6
-  goldDrop: 0
-  speed: 0.3
-  rotSpeed: 75
+  goldDrop: 10
+  speed: 0.45
+  rotSpeed: 90
   sprites:
   - {fileID: 21300000, guid: 4f0e9d67f09f5274b98c69858b84e969, type: 3}
   - {fileID: 21300000, guid: e46e21f5a1ab1d44a8fcd92c055f46cc, type: 3}

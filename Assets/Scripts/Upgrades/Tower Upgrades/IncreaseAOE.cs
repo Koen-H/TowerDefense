@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IncreaseSpeed : TowerUpgrade
+public class IncreaseAOE: TowerUpgrade
 {
 
-    [SerializeField] float[] speedPerLevel;
+    [SerializeField] float[] AOEPerLevel;
 
     public override void Upgrade()
     {
-        if (speedPerLevel.Length <= upgradeLVL + 1) return;
+        if (AOEPerLevel.Length <= upgradeLVL + 1) return;
         upgradeLVL++;
-        tower.SetSpeed(speedPerLevel[upgradeLVL]);
+        tower.SetAOE(AOEPerLevel[upgradeLVL]);
         Debug.Log("This has been upgraded");
     }
 
     public override int GetAmountOfUpgrades()
     {
-        return speedPerLevel.Length;
+        return AOEPerLevel.Length;
     }
 }

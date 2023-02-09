@@ -37,6 +37,11 @@ public class StatusEffect : MonoBehaviour
         }
             Debug.Log("Effect reset");
     }
+    public void SetData(float effectDuration, float effectStrength)
+    {
+        duration = effectDuration;
+        strength = effectStrength;
+    }
 
     public virtual void ApplyEffect()
     {

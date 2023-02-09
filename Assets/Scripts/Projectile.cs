@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public Tower tower;
-    private int damage;//How much damage does the projectile deal?
+    private float damage;//How much damage does the projectile deal?
     [SerializeField] int pierces;//How many different enemies can it hit?
     private float splashRange = 0;//If the projectile has an AEO, it will deal damage to all the targets within the splashranger.
     private float speed;//How many different enemies can it hit?
@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
     /// <param name="_lifeSpanRange"></param>
     /// <param name="_effectDuration"></param>
     /// <param name="_effectStrength"></param>
-    public void SetProjectileData(int _damage, int _pierces, float _splashRange, float _speed, float _lifeSpanRange, float _effectDuration, float _effectStrength)
+    public void SetProjectileData(float _damage, int _pierces, float _splashRange, float _speed, float _lifeSpanRange, float _effectDuration, float _effectStrength)
     {
         damage= _damage;
         pierces= _pierces;
@@ -40,6 +40,10 @@ public class Projectile : MonoBehaviour
         lifeSpanRange= _lifeSpanRange;
         effectDuration= _effectDuration;
         effectStrength= _effectStrength;
+        if(statusEffect != null)
+        {
+            statusEffect.SetData(effectDuration, effectStrength);
+        }
 
     }
     // Start is called before the first frame update

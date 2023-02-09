@@ -37,7 +37,11 @@ public class FollowPath : Walker
         if (distvec.magnitude < 0.1f)
         {
             if (path[targetNode].isFinish) this.GetComponent<Enemy>().OnReachedFinish();
-            if (path[targetNode].isEnd) this.GetComponent<Enemy>().OnReachedEnd();
+            if (path[targetNode].isEnd)
+            {
+                this.GetComponent<Enemy>().OnReachedEnd();
+                return;
+            }
             targetNode++;
         }
            

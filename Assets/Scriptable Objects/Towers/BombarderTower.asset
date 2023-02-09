@@ -28,4 +28,4 @@ MonoBehaviour:
   towerName: Bombarder
   description: A powerful explosive tower, launching barrels in to the air towards
     incoming ships which explode on impact.
-  price: 0
+  price: 500

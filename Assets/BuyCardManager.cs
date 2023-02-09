@@ -3,15 +3,28 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuyCardManager : MonoBehaviour
 {
     [SerializeField] TowerSO tower;
     //[SerializeField] GameObject towerPrefab;
+    ShopManager shopManager;
 
-    [SerializeField] MouseManager mouseManager;
+    //[SerializeField] MouseManager mouseManager;
 
+    [SerializeField] TextMeshProUGUI towerName;
     [SerializeField] TextMeshProUGUI description;
+    [SerializeField] TextMeshProUGUI price;
+    [SerializeField] TextMeshProUGUI damage;
+    [SerializeField] TextMeshProUGUI range;
+    [SerializeField] TextMeshProUGUI speed;
+    [SerializeField] TextMeshProUGUI AOE;
+
+    [SerializeField] Button buyButton;
+    [SerializeField] TextMeshProUGUI buyButtonText;
+
+    public static event System.Action<TowerSO> OnTowerBuy;
 
     private void Awake()
     {
@@ -22,29 +35,31 @@ public class BuyCardManager : MonoBehaviour
             return;
         }
         GetComponentInChildren<TowerPicture>().SetTowerPicture(tower);
+        towerName.text = tower.towerName;
         description.text = tower.description;
+        price.text = tower.price.ToString();
+        damage.text = tower.projectileDamage.ToString();
+        range.text = tower.range.ToString();
+        speed.text = tower.shootSpeed.ToString();
+        AOE.text = tower.projectileSplashRange.ToString();
+        shopManager = GetComponentInParent<ShopManager>();
+        ShopManager.OnBalanceChange += CheckIfPurchaseAble;
         ////For now, I suppose
         //Texture2D texture = AssetPreview.GetAssetPreview(towerPrefab);
         //Rect rec = new Rect(0, 0, texture.width, texture.height);
         //towerMesh.GetComponent<Image>().sprite = Sprite.Create(texture, rec, new Vector2(0, 0), 1);
     }
 
-    void Start()
+    private void CheckIfPurchaseAble(int currentGold)
     {
-        mouseManager = GameManager.Instance.mouseManager;
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        bool purchaseAble = currentGold >= tower.price ? true : false;
+        buyButton.enabled = purchaseAble;
+        buyButtonText.text = purchaseAble ? "Buy" : "Not enough gold";
     }
 
     public void Buy()
     {
-        //TODO: if currency is not enough, return.
-        mouseManager.SetMouseStatus(MouseStatus.Placing);
-        mouseManager.placeTowerManager.OnTowerBuy(tower.towerPrefab,tower);
+        shopManager.CloseShop();
+        OnTowerBuy?.Invoke(tower);
     }
 }

@@ -21,8 +21,12 @@ public class Walker : MonoBehaviour
         return speed;
     }
 
-    public int GetTargetNode()
+    public int GetTargetNodeID()
     {
         return targetNode;
+    }
+    public Path GetTargetNode()
+    {
+        return path[targetNode];
     }
 }
