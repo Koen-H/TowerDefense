@@ -16,14 +16,14 @@ public class Tower : MonoBehaviour
     [SerializeField] TargetingType targetingType = TargetingType.First;
     [SerializeField] List<Shooter> shooters;
 
-    SpriteRenderer rangeMesh;
+    //SpriteRenderer rangeMesh;
 
     Range range;
 
     private void Awake()
     {
         range = GetComponentInChildren<Range>();
-        rangeMesh = range.GetComponent<SpriteRenderer>();
+        //rangeMesh = range.GetComponent<SpriteRenderer>();
         upgrades = GetComponents<TowerUpgrade>();
         LoadTowerData();
     }

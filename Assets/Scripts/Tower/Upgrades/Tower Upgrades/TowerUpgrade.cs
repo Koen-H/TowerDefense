@@ -21,6 +21,7 @@ public abstract class TowerUpgrade : MonoBehaviour
     public string GetDescription() { return description; }
     public int GetLVL() { return upgradeLVL; }
     public int GetCost() {return (int)(baseCost * (costMultiplier * (upgradeLVL + 1))); }//plus one as we are calculating the cost of the NEXT level
+
     /// <summary>
     /// Returns the cost of the requested lvl
     /// </summary>

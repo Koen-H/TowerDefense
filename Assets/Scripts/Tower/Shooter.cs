@@ -84,10 +84,6 @@ public class Shooter : MonoBehaviour
             if (!isShooting) { StartCoroutine(ShootEnum()); }// If we aren't shooting yet, start the shooting sequence
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            Shoot();
-        }
     }
 
     public void SetTarget(Enemy newTarget)

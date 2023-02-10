@@ -52,11 +52,10 @@
   <Class Name="Path">
     <Position X="3" Y="11" Width="1.5" />
     <Members>
-      <Method Name="Awake" Hidden="true" />
       <Method Name="Start" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAAAABAIAABAAgACAAAAAAUAAAEA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAAAAAABAIAABAAgACAAAAAAUAAAAA=</HashCode>
       <FileName>Assets\Scripts\Enemy\Path.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -232,7 +231,7 @@
       <Method Name="Update" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAQQgAAAADQAgAAgAAIAEAAAEMAAAQECAAAAAAAAAEA=</HashCode>
+      <HashCode>AAQQgAAAACQAgAAgAAIAEAAAEMAAAQECAAAAAAAAAEA=</HashCode>
       <FileName>Assets\Scripts\Tower\Projectile.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -266,7 +265,6 @@
       <Field Name="range" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
-      <Field Name="upgrades" />
       <Field Name="shooters" />
     </ShowAsCollectionAssociation>
   </Class>
@@ -312,16 +310,6 @@
       <FileName>Assets\Scripts\Tower\Upgrades\Tower Upgrades\IncreaseSpeed.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TowerUpgrade">
-    <Position X="9.75" Y="6" Width="1.5" />
-    <Members>
-      <Method Name="Start" Hidden="true" />
-    </Members>
-    <TypeIdentifier>
-      <HashCode>AQAQAAAAACAAAAAAMAAhAAAAACAAAAAAAAAQCAAABAI=</HashCode>
-      <FileName>Assets\Scripts\Tower\Upgrades\Tower Upgrades\TowerUpgrade.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="ConditionManager">
     <Position X="8" Y="18.75" Width="1.75" />
     <TypeIdentifier>
@@ -362,6 +350,14 @@
       <HashCode>IAAQAgCIAAAAACAAAFAAAAAAAEAAAYAAABoAAAACAEA=</HashCode>
       <FileName>Assets\Scripts\Tower\Range.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="TowerUpgrade" Collapsed="true">
+    <Position X="23.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAQAAAAACAAAAAAMAAhAAAAACAAAAAAAAAQCAAABAI=</HashCode>
+      <FileName>Assets\Scripts\Tower\Upgrades\Tower Upgrades\TowerUpgrade.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

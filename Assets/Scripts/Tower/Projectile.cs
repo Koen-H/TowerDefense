@@ -74,6 +74,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
+
     void Update()
     {
         if ((tower.transform.position - transform.position).magnitude > lifeSpanRange) Die();
