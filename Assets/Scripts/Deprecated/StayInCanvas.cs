@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ==DEPRECATED==
+/// Tries to make gameobject stay within the canvas of the screen
+/// </summary>
 public class StayInCanvas : MonoBehaviour
 {
     Rect rect;

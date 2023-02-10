@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using static SubWave;
 
+/// <summary>
+/// The wavemanager is used to initialize enemies within waves.
+/// The wavemanager keeps track of all the enemies that are currently alive
+/// </summary>
 public class WaveManager : MonoBehaviour
 {
     [SerializeField] List<Wave> waves;
@@ -10,7 +14,7 @@ public class WaveManager : MonoBehaviour
     int currentWave;
     Dictionary<int, bool> subwaveSuccesfullySpawned = new ();//int equals subwave spawned, bool equals if succesfulyl spawned.
 
-    [SerializeField] GameObject enemyPrefab;//For now just one
+    [SerializeField] GameObject enemyPrefab;
     [SerializeField] GameObject waveStartButton;
     public static event System.Action<Wave> OnEndOfWave;
     public static event System.Action OnAllWavesCompleted;
@@ -39,6 +43,10 @@ public class WaveManager : MonoBehaviour
         StartWave();
     }
 
+    /// <summary>
+    /// Starts coroutines for each subwave based on their data.
+    /// </summary>
+    /// <param name="wave">The wave that will be initialized</param>
     public void InitializeWave(Wave wave)
     {
         subwaveSuccesfullySpawned.Clear();
@@ -69,7 +77,7 @@ public class WaveManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Loops through a dictionary filled with booleans and subwaveID. 
+    /// Loops through a dictionary filled with subwave ids and if it's finished spawning the enemies.
     /// </summary>
     /// <returns>Returns true if all the subwaves finished spawning</returns>
     bool AllSubWaveSpawned()
@@ -82,26 +90,26 @@ public class WaveManager : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Checks if all waves are finished spawning when all the enemies are dead.
+    /// Will invoke the OnEndOfWave event.
+    /// </summary>
+    /// <param name="enemy"></param>
     private void OnEnemyDeath(Enemy enemy)
     {
         enemiesAlive.Remove(enemy);
         if(enemiesAlive.Count == 0 && AllSubWaveSpawned())
         {
             OnEndOfWave?.Invoke(waves[currentWave]);
-            if (waves[currentWave].isLastWave)
-            {
-                OnAllWavesCompleted?.Invoke();
-            }
-            else
-            {
-                currentWave++;
-            }
-
-
+            if (waves[currentWave].isLastWave) OnAllWavesCompleted?.Invoke();
+            else currentWave++;
         }
     }
 
-
+    /// <summary>
+    /// Spawns an enemy and sets the data 
+    /// </summary>
+    /// <param name="enemyTypes"></param>
     void SpawnEnemy(List<EnemySO> enemyTypes)
     {
         Enemy newEnemy = Instantiate(enemyPrefab).GetComponent<Enemy>();

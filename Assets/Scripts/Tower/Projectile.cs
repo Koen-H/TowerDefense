@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The projectile has the movement script and applies damage on collision.
+/// It has all the values a projectile needs.
+/// </summary>
 public class Projectile : MonoBehaviour
 {
     public Tower tower;
@@ -14,13 +18,14 @@ public class Projectile : MonoBehaviour
     private float effectDuration;
     private float effectStrength;
 
-
-    List<Enemy> enemiesHit = new List<Enemy>();
+    //For statistics
+    //List<Enemy> enemiesHit = new List<Enemy>();
 
     private void Awake()
     {
         statusEffect = gameObject.GetComponent<StatusEffect>();//Could become more in future, change to array if it's the case
     }
+
     /// <summary>
     /// Set the correct data on the bullet, such as its damage and speed.
     /// </summary>
@@ -74,13 +79,13 @@ public class Projectile : MonoBehaviour
         if ((tower.transform.position - transform.position).magnitude > lifeSpanRange) Die();
     }
 
+
     private void Hit(Enemy enemy, bool noPierce = false)
     {
         if (pierces <= 0 && !noPierce) return;
-        enemiesHit.Add(enemy);
+        //enemiesHit.Add(enemy);
         enemy.Damage(damage);
         if (statusEffect != null) enemy.ApplyStatusEffect(statusEffect);
-        //if (statusEffectSO != null) statusEffectSO.ApplyEffect(enemy);
         pierces--;
         if (pierces <= 0) Die();
     }

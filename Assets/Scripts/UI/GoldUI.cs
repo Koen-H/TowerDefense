@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Updates the UI text with the currentgold.
+/// </summary>
 public class GoldUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI goldDisplay;

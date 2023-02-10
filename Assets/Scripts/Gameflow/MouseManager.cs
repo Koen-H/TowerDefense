@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The mouse manager is used for creating a good QOL within the ui, such as clicking next to the canvas will make it close.
+/// NOTE: Mouse manager does not provide any additional value to the project right now besides a reference to the placeTowerManager, it only keeps track of the status for future implementation.
+/// </summary>
 public class MouseManager : MonoBehaviour
 {
     MouseStatus mouseStatus = MouseStatus.Idle;

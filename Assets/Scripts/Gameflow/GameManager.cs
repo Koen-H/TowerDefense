@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// The GameManager is a singleton, it only has one instance and can be reached from anywhere to get a quick reference to the PathGenerator, MouseManager and WaveManager.
+/// The GameManager keeps track of the current game condition
+/// It keeps track of the amount of health the player has.
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
@@ -16,6 +21,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] ConditionManager conditionManager;
     public GameCondition currentGameCondition = GameCondition.Playing;
 
+    /// <summary>
+    /// Gets the singleton GameManager
+    /// </summary>
     public static GameManager Instance { get {
             if (_instance == null) Debug.LogError("GameManager is null");
             return _instance; 
@@ -84,8 +92,6 @@ public class GameManager : MonoBehaviour
         currentGameCondition = GameCondition.Won;
         conditionManager.SetCondition(currentGameCondition);
     }
-
-
 }
 
 public enum GameCondition

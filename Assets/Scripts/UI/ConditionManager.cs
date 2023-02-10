@@ -4,6 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// The condition Manager is used to handle the end-screen, it showcases the win or lose and has the functionality for the buttons.
+/// </summary>
 public class ConditionManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI conditionTextDisplay;

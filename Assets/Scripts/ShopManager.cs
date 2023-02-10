@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The complete shop, containing the current balance and all the methods to change it.
+/// Runs completely on events
+/// </summary>
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] LevelStatsSO levelStats;

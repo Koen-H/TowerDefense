@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatusEffect : MonoBehaviour
+/// <summary>
+/// An abstract statuseffect class that can be used to aplly custom status effects on enemies
+/// </summary>
+public abstract class StatusEffect : MonoBehaviour
 {
     [SerializeField] protected float duration;
     [SerializeField] protected float strength;
@@ -17,6 +20,11 @@ public class StatusEffect : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Simple countdown for when the effect should wear off.
+    /// The effects duration can change mid-effect.
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator EffectCountdown()
     {
         while (duration > 0)
@@ -27,6 +35,11 @@ public class StatusEffect : MonoBehaviour
         RemoveEffect();
     }
 
+    /// <summary>
+    /// Reset the effect if the duration is longer
+    /// Also increases the strength of the ffect if thew new effect is stronger.
+    /// </summary>
+    /// <param name="effect"></param>
     public void ResetEffect(StatusEffect effect)
     {
         if (effect.duration > duration) duration = effect.duration;
@@ -54,7 +67,7 @@ public class StatusEffect : MonoBehaviour
 
     public virtual void CopyFrom (StatusEffect effect)
     {
-
+        Debug.LogWarning("There is no CopyFrom set");
     }
 
     public float GetDuration()

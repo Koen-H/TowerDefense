@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEngine.GraphicsBuffer;
 
+/// <summary>
+/// The tower has shooters, a range and upgrades.
+/// The tower is used to communicate with the other components.
+/// </summary>
 public class Tower : MonoBehaviour
 {
     [SerializeField] TowerSO towerData;

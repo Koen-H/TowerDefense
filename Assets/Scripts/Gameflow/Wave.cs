@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
 
+
 public class Wave //Future improvement could be a scriptable object!
 {
     [HideInInspector] public int waveNumber;

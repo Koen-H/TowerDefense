@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The PlaceTowerManager is used for placing the tower
+/// It detects if a tower can be placed
+/// </summary>
 public class PlaceTowerManager : MonoBehaviour
 {
     TowerSO towerToPlace;
     TowerType towerType;
-    GameManager gameManager;
     bool isPlacing = false;
     bool canBePlaced = false;
     GameObject range;
@@ -14,6 +17,7 @@ public class PlaceTowerManager : MonoBehaviour
     [SerializeField] List<GameObject> colliders = new List<GameObject>();
     SpriteRenderer spriteRenderer;
     public static event System.Action<TowerSO> OnTowerPlace;
+    GameManager gameManager;
 
     private void Awake()
     {
@@ -47,6 +51,9 @@ public class PlaceTowerManager : MonoBehaviour
         colliders.Remove(other.gameObject);
     }
 
+    /// <summary>
+    /// Checks the placement by comparing the amount of colliders, then checks if the collider tag equals the type of the tower.
+    /// </summary>
     void CheckPlacement()
     {
         if (colliders.Count != 1 || colliders[0].tag == "Tower" || colliders[0].tag == "Path") {//Can't be placed
@@ -60,7 +67,11 @@ public class PlaceTowerManager : MonoBehaviour
             canBePlaced = true;
         }
     }
-
+    /// <summary>
+    /// The tower is selected to be bought, the gameobjects becomes active and has the correct data to help visualize where the player places the tower.
+    /// 
+    /// </summary>
+    /// <param name="towerBought"></param>
     public void OnTowerBuy(TowerSO towerBought)
     {
         gameObject.SetActive(true);
@@ -72,6 +83,7 @@ public class PlaceTowerManager : MonoBehaviour
         float towerRange = towerBought.GetRange();
         range.transform.localScale = new Vector3(towerRange, towerRange, towerRange);
     }
+
 
     void PlaceTower()
     {
@@ -85,7 +97,6 @@ public class PlaceTowerManager : MonoBehaviour
 
     void CancelTower()
     {
-        
         isPlacing = false;
         canBePlaced = false;
         gameManager.mouseManager.SetMouseStatus(MouseStatus.Idle);

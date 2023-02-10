@@ -5,6 +5,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Is used within the shop, all it needs is a towerSO and it'll load the rest of the details
+/// </summary>
 public class BuyCardManager : MonoBehaviour
 {
     [SerializeField] TowerSO tower;
@@ -30,11 +33,12 @@ public class BuyCardManager : MonoBehaviour
     {
         if (tower == null)
         {
-            Debug.LogError("This card doesn't have a towerPrefab!");
+            Debug.LogError("This card doesn't have a tower!");
             Destroy(gameObject);
             return;
         }
         GetComponentInChildren<TowerPicture>().SetTowerPicture(tower);
+        //Load the UI with correct text
         towerName.text = tower.towerName;
         description.text = tower.description;
         price.text = tower.price.ToString();

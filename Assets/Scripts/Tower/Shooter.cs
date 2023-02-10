@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The shooter is on top of a tower, there can be multiple shooters.
+/// The shooter shoots projectiles
+/// The shooter has all the variables stored for the projectile, they are changed based on upgrades.
+/// </summary>
 public class Shooter : MonoBehaviour
 {
     Tower tower;
-    [SerializeField] Enemy target;
-    [SerializeField] private float shootSpeed;//How fast can it shoot?
-    [SerializeField] private float projectileRange;//How far do the projectiles go?
+    Enemy target;
+    private float shootSpeed;//How fast can it shoot?
+    private float projectileRange;//How far do the projectiles go?
     bool isShooting = false;
     Range range;
 

@@ -2,9 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// The enemy class keeps track of everything related to the enemy.
+/// The enemy class keeps track of health.
+/// The enemy has a walker, which is used to walk along the path.
+/// </summary>
 public class Enemy : MonoBehaviour
 {
     [SerializeField] EnemySO enemyData;
@@ -24,11 +28,14 @@ public class Enemy : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         LoadEnemyData();
     }
+    /// <summary>
+    /// Loads the enemy data
+    /// </summary>
     private void LoadEnemyData()
     {
         if (enemyData == null)
         {
-            Debug.LogError("Tower does not have any tower data!");
+            Debug.LogError("Enemy does not have any Enemy data!");
             return;
         }
         health = enemyData.defaultHealth;
@@ -50,12 +57,18 @@ public class Enemy : MonoBehaviour
         return health;
     }
 
-    public void OnReachedFinish()//the enemy officially made it and the health drops, but stays alive for the visual aspect
+    /// <summary>
+    /// The enemy reached the finish, which is the gate. It stays alive for visual aspect but gets ignored by cannons
+    /// </summary>
+    public void OnReachedFinish()
     {
         ignoredByCannons = true;
         OnFinish.Invoke(enemyData);
         
     }
+    /// <summary>
+    /// When it's off screen it reaches the end of the path and it will die.
+    /// </summary>
     public void OnReachedEnd()
     {
         Die();//Also giving the player gold because I'm nice and they most likely need it if the enemy reached this point because they suck at the game.
@@ -82,6 +95,11 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    /// <summary>
+    /// If the effect is already on the enemy it will try to reset it if possible.
+    /// 
+    /// </summary>
+    /// <param name="newEffect"></param>
     public void ApplyStatusEffect(StatusEffect newEffect)
     {
         if (statusEffects.TryGetValue(newEffect.GetType(), out StatusEffect oldEffect))
@@ -93,8 +111,5 @@ public class Enemy : MonoBehaviour
             statusEffects[newEffect.GetType()] = gameObject.AddComponent(newEffect.GetType()) as StatusEffect;
             statusEffects[newEffect.GetType()].CopyFrom(newEffect);
         }
-
-
-
     }
 }

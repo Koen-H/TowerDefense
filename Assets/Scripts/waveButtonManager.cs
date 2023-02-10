@@ -39,7 +39,12 @@ public class waveButtonManager : MonoBehaviour
     {
         waveManager.StartWave();
     }
-
+    /// <summary>
+    /// Starts a countdown and showcases the time left + next wave.
+    /// </summary>
+    /// <param name="breaktime"></param>
+    /// <param name="waveNumber"></param>
+    /// <returns></returns>
     IEnumerator NextWaveCountdown(int breaktime, int waveNumber)
     {
         for(int i = breaktime; i > 0; i--)

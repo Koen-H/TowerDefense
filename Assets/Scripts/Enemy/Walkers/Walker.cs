@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Walker : MonoBehaviour
+/// <summary>
+/// A walker, is a abstract class that the enemy can use to navigate through a path.
+/// </summary>
+public abstract class Walker : MonoBehaviour
 {
     [SerializeField] protected bool moving;
     [SerializeField] protected float speed;

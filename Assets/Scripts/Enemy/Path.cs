@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A path can be seen as a node, it's on a path gameobject
+/// </summary>
 public class Path : MonoBehaviour
 {
     public bool isStart = false;//The fist node of the path, is off screen
@@ -12,14 +15,6 @@ public class Path : MonoBehaviour
     [SerializeField] PathGenerator pathGenerator;
     LayerMask _layer;
 
-    private void Awake()
-    {
-        this.gameObject.name = UnityEngine.Random.Range(0, 3000).ToString();
-    }
-
-
-
-
     void Start()
     {
         pathGenerator = GameManager.Instance.pathGenerator;
@@ -27,6 +22,10 @@ public class Path : MonoBehaviour
         _layer = LayerMask.GetMask("Path");
     }
 
+    /// <summary>
+    /// Gets the alignednodes next to each other
+    /// </summary>
+    /// <returns>Returns the two nodes next to it</returns>
     public List<Path> GetAlignedNodes()
     {
         List<Path> alignedNodes = new List<Path>();

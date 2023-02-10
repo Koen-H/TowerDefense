@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// An abstract class Towerupgrade which can be inherited from to make custom upgrades.
+/// </summary>
 public abstract class TowerUpgrade : MonoBehaviour
 {
     protected Tower tower;
@@ -11,7 +14,7 @@ public abstract class TowerUpgrade : MonoBehaviour
     [SerializeField] protected float costMultiplier;
     [SerializeField] protected int upgradeLVL = 0;
 
-    //FUTURE IMPROVEMENT, make a new class that inherits from this class which is a statistical upgrade.(as all my current one are just changing numbers)
+    //FUTURE IMPROVEMENT, make a new class that inherits from this class which is a statistical upgrade.(as all my current one are just changing numbers, statistical upgrades)
 
     public void Start() { tower = GetComponent<Tower>(); }
     public string GetName() { return upgradeName; }

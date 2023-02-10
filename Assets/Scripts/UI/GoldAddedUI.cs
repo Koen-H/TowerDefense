@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Updates the text with the addedBalance
+/// </summary>
 public class GoldAddedUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI goldAddedDisplay;

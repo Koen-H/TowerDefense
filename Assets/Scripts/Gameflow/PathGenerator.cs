@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// The pathgenerator generates a path by creating a sorted list out of nodes (path.cs)
+/// </summary>
 public class PathGenerator : MonoBehaviour
 {
     private List<Path> pathNodes = new List<Path>();
@@ -18,6 +21,11 @@ public class PathGenerator : MonoBehaviour
         else if (node.isEnd) endNode = node;
     }
 
+    /// <summary>
+    /// Generates a path by getting the aligned nodes of each node starting from the first node.
+    /// Can't be run in Start or Awake
+    /// The tilemap is being generated in Awake and moved on Start (not my fault)
+    /// </summary>
     public void GeneratePath()
     {
         //Let all nodes get their alligned nodes. ??? Doesn't work in start, needs to be one frame after start...?

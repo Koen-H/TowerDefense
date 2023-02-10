@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The Range on the tower, it keeps track of which enemies are within range. It can return a target based on a targetingtype.
+/// </summary>
 public class Range : MonoBehaviour
 {
     Tower tower;
-    [SerializeField] float range;
+    float range;
     List<Enemy> enemiesWithinRange = new List<Enemy>();
     SpriteRenderer spriteRenderer;
 
@@ -38,7 +41,7 @@ public class Range : MonoBehaviour
     public Enemy GetTarget(TargetingType targeting)
     {
         if (enemiesWithinRange.Count == 0) return null;
-        switch (targeting)
+        switch (targeting)//Targeting for future, the code is here but for the school assignment we force it to first only.
         {
             case TargetingType.First:
                 {
@@ -60,6 +63,10 @@ public class Range : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Returns the range in float.
+    /// </summary>
+    /// <returns></returns>
     public float GetRange()
     {
         return range;
@@ -154,8 +161,4 @@ public class Range : MonoBehaviour
     }
 
 
-}
-
-public interface Rangetest
-{
 }

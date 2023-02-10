@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Used to select towers with the mouse.
+/// </summary>
 public class InspectTowerManager : MonoBehaviour
 {
     LayerMask towerLayerMask;

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 
+/// <summary>
+/// Inherits from Statuseffect, applies slowness on an enemy and makes their sprite darker.
+/// </summary>
 public class SlownesEffect : StatusEffect
 {
     SpriteRenderer spriteRenderer;
@@ -21,6 +24,9 @@ public class SlownesEffect : StatusEffect
 
     }
 
+    /// <summary>
+    /// Resets the effect back to it's original stats
+    /// </summary>
     public override void RemoveEffect()
     {
         spriteRenderer.color = new Color(255,255,255);
