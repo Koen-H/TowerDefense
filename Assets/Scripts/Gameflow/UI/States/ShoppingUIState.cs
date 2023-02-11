@@ -4,12 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Opens and closes the shop
+/// </summary>
 public class ShoppingUIState :  BasicState
 {
     UIManager UIManager;
-    public void EnterState(StateMachine _UIManager)
+
+    public ShoppingUIState(UIManager _UIManager)
     {
-        if (UIManager == null) UIManager = (UIManager)_UIManager;
+        UIManager = _UIManager;
+    }
+
+    public void EnterState()
+    {
         UIManager.shopUI.SetActive(true);
         Debug.Log("entering shopping state");
     }
@@ -33,9 +41,8 @@ public class ShoppingUIState :  BasicState
         }
 
     }
-    public void ExitState(StateMachine _UIManager)
+    public void ExitState()
     {
-        if (UIManager == null) UIManager = (UIManager)_UIManager;
         UIManager.shopUI.SetActive(false);
         Debug.Log("exit shopping state");
     }

@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// The UI manager is used for creating a good HUD. It makes sure all the other ui is closed to keep the screen as clean as possible
+/// The UI manager is used for creating a good QOL HUD. It makes sure all the other ui is closed to keep the screen as clean as possible.
+/// Different states are being used, in the idle state it looks for tower clicks.
+/// In the shopping state it looks for non-ui clicks to close the shop.
+/// In the inspecting state it does both.
 /// It's made with the SFM pattern.
 /// </summary>
 public class UIManager : StateMachine
@@ -58,9 +61,9 @@ public class UIManager : StateMachine
         if (closeInspectCardButton == null) Debug.LogError("closeInspectCardButton is null");
         else closeInspectCardButton.GetComponent<Button>().onClick.AddListener(() => ChangeState(idleState));
 
-        idleState = new IdleUIState();
-        shoppingState = new ShoppingUIState();
-        inspectingState = new InspectingUIState();
+        idleState = new IdleUIState(this);
+        shoppingState = new ShoppingUIState(this);
+        inspectingState = new InspectingUIState(this);
         //In theory, there couldb e a building state, but this one is the same as the idle state so it has no real purpose.
     }
 
@@ -82,8 +85,8 @@ public class UIManager : StateMachine
 
     public void ChangeState(BasicState newState)
     {
-        currentState.ExitState(this);
+        currentState.ExitState();
         currentState = newState;
-        currentState.EnterState(this);
+        currentState.EnterState();
     }
 }

@@ -2,13 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/// <summary>
+/// In the idle states it tries to go in to the inspecting state.
+/// </summary>
 public class IdleUIState :  BasicState
 {
     UIManager uiManager;
-    public  void EnterState(StateMachine _uiManager)
+
+    public IdleUIState(UIManager _uiManager)
     {
-        if (uiManager == null) uiManager = (UIManager)_uiManager;
+        uiManager = _uiManager;
+    }
+    public  void EnterState()
+    {
         Debug.Log("entering idle state");
     }
 
@@ -28,7 +34,7 @@ public class IdleUIState :  BasicState
 
         }
     }
-    public  void ExitState(StateMachine _uiManager)
+    public  void ExitState()
     {
         Debug.Log("exit idle state");
     }

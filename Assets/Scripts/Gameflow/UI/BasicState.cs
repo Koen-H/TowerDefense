@@ -4,9 +4,9 @@ using UnityEngine;
 
 public interface BasicState 
 {
-    public void EnterState(StateMachine _stateMachine);
+    public void EnterState();
     public void MouseBehaviour();
-    public void ExitState(StateMachine _stateMachine);
+    public void ExitState();
     //public virtual void EnterState(StateMachine mouseManager)
     //{
     //    throw new System.NotImplementedException();

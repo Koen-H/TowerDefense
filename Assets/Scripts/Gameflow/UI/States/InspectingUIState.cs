@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// opens and closes the inspect card
+/// </summary>
 public class InspectingUIState :  BasicState
 {
     InspectCardManager inspectCardManager;
-    public void EnterState(StateMachine _UIManager)
+
+    public InspectingUIState(UIManager uIManager)
     {
-        if (inspectCardManager == null) inspectCardManager = ((UIManager)_UIManager).inspectCardUI.GetComponent<InspectCardManager>();
+        inspectCardManager = uIManager.inspectCardUI.GetComponent<InspectCardManager>();
+    }
+
+    public void EnterState()
+    {
         Debug.Log("entering inspecting state");
     }
 
@@ -37,7 +45,7 @@ public class InspectingUIState :  BasicState
 
         }
     }
-    public void ExitState(StateMachine _UIManager)
+    public void ExitState()
     {
         inspectCardManager.CloseCard();
         Debug.Log("exit inspecting state");
