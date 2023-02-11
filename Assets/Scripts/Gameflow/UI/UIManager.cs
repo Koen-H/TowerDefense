@@ -9,6 +9,8 @@ using UnityEngine.UI;
 /// In the shopping state it looks for non-ui clicks to close the shop.
 /// In the inspecting state it does both.
 /// It's made with the SFM pattern.
+/// The states are made with interfaces using the strategy pattern.
+/// The UI manager is a singleton as UI can also be disabled by buying towers.
 /// </summary>
 public class UIManager : StateMachine
 {

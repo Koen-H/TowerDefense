@@ -71,9 +71,9 @@ public class MouseManager : StateMachine
 
     public void ChangeMouseState(BasicState newMouseState)
     {
-        currentState.ExitState(this);
+        currentState.ExitState();
         currentState = newMouseState;
-        currentState.EnterState(this);
+        currentState.EnterState();
     }
 
     //public void SetMouseStatus(MouseStatus newStatus)
