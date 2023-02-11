@@ -77,11 +77,13 @@ public class Range : MonoBehaviour
         spriteRenderer.enabled = show;
     }
 
-    /// <summary>
-    /// Returns the first on the path within reach
-    /// </summary>
-    /// <returns></returns>
-    Enemy GetFirstEnemy()
+
+
+/// <summary>
+/// Returns the first on the path within reach
+/// </summary>
+/// <returns></returns>
+Enemy GetFirstEnemy()
     {
         Enemy firstEnemy = null;
         int firstEnemyNode = 0;

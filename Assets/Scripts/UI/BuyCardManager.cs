@@ -67,7 +67,7 @@ public class BuyCardManager : MonoBehaviour
 
     public void Buy()
     {
-        shopManager.CloseShop();
+        UIManager.Instance.ChangeState(UIManager.Instance.idleState);
         OnTowerBuy?.Invoke(tower);
     }
 }

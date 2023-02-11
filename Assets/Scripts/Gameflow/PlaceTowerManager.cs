@@ -17,16 +17,19 @@ public class PlaceTowerManager : MonoBehaviour
     [SerializeField] List<GameObject> colliders = new List<GameObject>();
     SpriteRenderer spriteRenderer;
     public static event System.Action<TowerSO> OnTowerPlace;
-    GameManager gameManager;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         range = transform.Find("Range").gameObject;
+        BuyCardManager.OnTowerBuy += OnTowerBuy;
+        this.gameObject.SetActive(false);
     }
-    void Start()
+
+    private void OnDestroy()
     {
-        gameManager = GameManager.Instance;
+        BuyCardManager.OnTowerBuy -= OnTowerBuy;
+
     }
 
     // Update is called once per frame
@@ -91,7 +94,7 @@ public class PlaceTowerManager : MonoBehaviour
         Instantiate(towerToPlace.towerPrefab,transform.position,Quaternion.identity);
         isPlacing = false;
         canBePlaced = false;
-        gameManager.mouseManager.SetMouseStatus(MouseStatus.Idle);
+        //gameManager.mouseManager.SetMouseStatus(MouseStatus.Idle);
         gameObject.SetActive(false);
     }
 
@@ -99,7 +102,7 @@ public class PlaceTowerManager : MonoBehaviour
     {
         isPlacing = false;
         canBePlaced = false;
-        gameManager.mouseManager.SetMouseStatus(MouseStatus.Idle);
+        //gameManager.mouseManager.SetMouseStatus(MouseStatus.Idle);
         gameObject.SetActive(false);
     }
 }

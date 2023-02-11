@@ -10,6 +10,7 @@ TagManager:
   - Tower
   - Water
   - Land
+  - Shop
   layers:
   - Default
   - TransparentFX

@@ -4,15 +4,15 @@ using TMPro;
 using UnityEngine;
 
 /// <summary>
-/// The GameManager is a singleton, it only has one instance and can be reached from anywhere to get a quick reference to the PathGenerator, MouseManager and WaveManager.
-/// The GameManager keeps track of the current game condition
+/// The GameManager is a singleton, it only has one instance and can be reached from anywhere to get a quick reference to the PathGenerator and WaveManager.
+/// The GameManager keeps track of the current game condition.
 /// It keeps track of the amount of health the player has.
 /// </summary>
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     public PathGenerator pathGenerator;
-    public MouseManager mouseManager;
+    //public MouseManager mouseManager;
     public WaveManager waveManager;
 
     [SerializeField] LevelStatsSO startOfLevelStats;
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
 
 
         pathGenerator = this.GetComponent<PathGenerator>();
-        mouseManager = this.GetComponent<MouseManager>();
+       // mouseManager = this.GetComponent<MouseManager>();
         waveManager = this.GetComponent<WaveManager>();
     }
     private void Start()

@@ -34,14 +34,6 @@ public class ShopManager : MonoBehaviour
         SetBalance(levelStats.starterGold);
         this.gameObject.SetActive(false);
     }
-    public void OpenShop()
-    {
-        this.gameObject.SetActive(true);
-    }
-    public void CloseShop()
-    {
-        this.gameObject.SetActive(false);
-    }
 
     public void AddBalance(int addAmount)
     {
