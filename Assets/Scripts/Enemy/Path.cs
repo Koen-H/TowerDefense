@@ -17,7 +17,7 @@ public class Path : MonoBehaviour
 
     void Start()
     {
-        pathGenerator = GameManager.Instance.pathGenerator;
+        pathGenerator = PathGenerator.Instance;
         pathGenerator.AddPathNode(this);
         _layer = LayerMask.GetMask("Path");
     }

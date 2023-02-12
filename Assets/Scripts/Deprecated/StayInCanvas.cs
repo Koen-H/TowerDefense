@@ -23,7 +23,7 @@ public class StayInCanvas : MonoBehaviour
     }
     private void Start()
     {
-        transform.position = GameManager.Instance.pathGenerator.startNode.gameObject.transform.position;
+        transform.position = PathGenerator.Instance.startNode.gameObject.transform.position;
 
     }
 

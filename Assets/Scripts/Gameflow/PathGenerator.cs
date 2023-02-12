@@ -13,6 +13,24 @@ public class PathGenerator : MonoBehaviour
 
     public Path startNode;
     public Path endNode;
+    private static PathGenerator _instance;
+
+    public static PathGenerator Instance
+    {
+        get
+        {
+            if (_instance == null) Debug.LogError("Pathgenerator is null");
+            return _instance;
+        }
+    }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this) Destroy(this.gameObject);
+        else _instance = this;
+    }
+
+
 
     public void AddPathNode(Path node)
     {

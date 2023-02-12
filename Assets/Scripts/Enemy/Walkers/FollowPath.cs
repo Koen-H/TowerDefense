@@ -10,7 +10,7 @@ public class FollowPath : Walker
 {
     private void Start()
     {
-        path = GameManager.Instance.pathGenerator.GetPath();
+        path = PathGenerator.Instance.GetPath();
         moving = true;
         this.transform.position = path[0].transform.position;
     }
@@ -44,7 +44,7 @@ public class FollowPath : Walker
     /// </summary>
     void CheckNodeArrival()
     {
-        if (path == null) path = GameManager.Instance.pathGenerator.GetPath();
+        if (path == null) path = PathGenerator.Instance.GetPath();
         Vector2 distvec = targetNodePos - new Vector2(transform.position.x, transform.position.y);
         if (distvec.magnitude < 0.1f)
         {

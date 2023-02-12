@@ -32,7 +32,7 @@ public class WaveManager : MonoBehaviour
     public void StartWave()
     {
         waveStartButton.SetActive(false);
-        GameManager.Instance.pathGenerator.GeneratePath();//In the future, the path can change mid-game
+        PathGenerator.Instance.GeneratePath();//In the future, the path can change mid-game
         waves[currentWave].waveNumber = currentWave +1;
         if(waves[currentWave].waveNumber == waves.Count) waves[currentWave].isLastWave = true;
         InitializeWave(waves[currentWave]);

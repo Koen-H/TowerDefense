@@ -353,7 +353,6 @@ GameObject:
   - component: {fileID: 105403988}
   - component: {fileID: 105403991}
   - component: {fileID: 105403990}
-  - component: {fileID: 105403989}
   m_Layer: 4
   m_Name: Shore
   m_TagString: Untagged
@@ -376,20 +375,6 @@ Transform:
   m_Father: {fileID: 325454946}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &105403989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105403987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c1b5542fa4ac8f4bbfe49526c5245d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startNode: {fileID: 0}
-  endNode: {fileID: 0}
 --- !u!483693784 &105403990
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -1428,7 +1413,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9be741ed47e404199dab7e21c7a62a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathGenerator: {fileID: 237315985}
   waveManager: {fileID: 0}
   startOfLevelStats: {fileID: 11400000, guid: dab4afde128eb6d4eb48f64d766ca2b7, type: 2}
   healthDisplay: {fileID: 386695960}
@@ -1526,11 +1510,135 @@ MonoBehaviour:
     isLastWave: 0
     subWaves:
     - enemies:
-      - {fileID: 11400000, guid: fe9c1243c8520494ca80d9a7a932050a, type: 2}
+      - {fileID: 11400000, guid: dc1695da7e19d5a409376bc5c4ac8259, type: 2}
+      amount: 10
+      waveDuration: 5
+      waveStartTime: 0
+    - enemies:
+      - {fileID: 11400000, guid: e29e6a30209e4e444a28025a89742c3c, type: 2}
       amount: 10
       waveDuration: 10
-      waveStartTime: 0
+      waveStartTime: 5
+    - enemies:
+      - {fileID: 11400000, guid: dc1695da7e19d5a409376bc5c4ac8259, type: 2}
+      - {fileID: 11400000, guid: e29e6a30209e4e444a28025a89742c3c, type: 2}
+      amount: 10
+      waveDuration: 30
+      waveStartTime: 5
     waveCompletionGoldBonus: 250
+    breakTimeAfterCompletion: 10
+  - waveNumber: 0
+    isLastWave: 0
+    subWaves:
+    - enemies:
+      - {fileID: 11400000, guid: 07e78b07b7fa39d478b64e18dcc13ef4, type: 2}
+      amount: 1
+      waveDuration: 5
+      waveStartTime: 0
+    - enemies:
+      - {fileID: 11400000, guid: dc1695da7e19d5a409376bc5c4ac8259, type: 2}
+      - {fileID: 11400000, guid: fe9c1243c8520494ca80d9a7a932050a, type: 2}
+      amount: 20
+      waveDuration: 40
+      waveStartTime: 20
+    waveCompletionGoldBonus: 500
+    breakTimeAfterCompletion: 10
+  - waveNumber: 0
+    isLastWave: 0
+    subWaves:
+    - enemies:
+      - {fileID: 11400000, guid: fc3519e67d759a643bf767427763b4a6, type: 2}
+      amount: 30
+      waveDuration: 90
+      waveStartTime: 0
+    - enemies:
+      - {fileID: 11400000, guid: 31bd6a83c412f104c968a4b20d6e3227, type: 2}
+      amount: 10
+      waveDuration: 90
+      waveStartTime: 0
+    - enemies:
+      - {fileID: 11400000, guid: 07e78b07b7fa39d478b64e18dcc13ef4, type: 2}
+      amount: 2
+      waveDuration: 30
+      waveStartTime: 90
+    waveCompletionGoldBonus: 500
+    breakTimeAfterCompletion: 10
+  - waveNumber: 0
+    isLastWave: 0
+    subWaves:
+    - enemies:
+      - {fileID: 11400000, guid: 07e78b07b7fa39d478b64e18dcc13ef4, type: 2}
+      amount: 4
+      waveDuration: 30
+      waveStartTime: 0
+    - enemies:
+      - {fileID: 11400000, guid: fe9c1243c8520494ca80d9a7a932050a, type: 2}
+      amount: 40
+      waveDuration: 90
+      waveStartTime: 0
+    - enemies:
+      - {fileID: 11400000, guid: f58fa9d199e85cb4a8a97d1c273c3072, type: 2}
+      amount: 1
+      waveDuration: 5
+      waveStartTime: 50
+    waveCompletionGoldBonus: 1000
+    breakTimeAfterCompletion: 10
+  - waveNumber: 0
+    isLastWave: 0
+    subWaves:
+    - enemies:
+      - {fileID: 11400000, guid: eebb1e1e5a13c624091fb358cf5d2f3e, type: 2}
+      amount: 2
+      waveDuration: 30
+      waveStartTime: 0
+    - enemies:
+      - {fileID: 11400000, guid: e29e6a30209e4e444a28025a89742c3c, type: 2}
+      amount: 30
+      waveDuration: 50
+      waveStartTime: 5
+    - enemies:
+      - {fileID: 11400000, guid: 07e78b07b7fa39d478b64e18dcc13ef4, type: 2}
+      amount: 5
+      waveDuration: 70
+      waveStartTime: 10
+    waveCompletionGoldBonus: 1000
+    breakTimeAfterCompletion: 10
+  - waveNumber: 0
+    isLastWave: 0
+    subWaves:
+    - enemies:
+      - {fileID: 11400000, guid: 76ffff72d8c09b24f9c59a67193a7e8c, type: 2}
+      amount: 5
+      waveDuration: 40
+      waveStartTime: 0
+    - enemies:
+      - {fileID: 11400000, guid: eebb1e1e5a13c624091fb358cf5d2f3e, type: 2}
+      amount: 5
+      waveDuration: 40
+      waveStartTime: 15
+    - enemies:
+      - {fileID: 11400000, guid: 07e78b07b7fa39d478b64e18dcc13ef4, type: 2}
+      amount: 5
+      waveDuration: 60
+      waveStartTime: 7
+    waveCompletionGoldBonus: 1000
+    breakTimeAfterCompletion: 10
+  - waveNumber: 0
+    isLastWave: 0
+    subWaves:
+    - enemies:
+      - {fileID: 11400000, guid: e11495047cf191047a56bf5fb8bc9188, type: 2}
+      amount: 5
+      waveDuration: 60
+      waveStartTime: 0
+    - enemies:
+      - {fileID: 11400000, guid: 31bd6a83c412f104c968a4b20d6e3227, type: 2}
+      - {fileID: 11400000, guid: fc3519e67d759a643bf767427763b4a6, type: 2}
+      - {fileID: 11400000, guid: ab1ca372998d8d84c828dc67585ac2bf, type: 2}
+      amount: 100
+      waveDuration: 70
+      waveStartTime: 5
+    waveCompletionGoldBonus: 1000
     breakTimeAfterCompletion: 10
   enemiesAlive: []
   enemyPrefab: {fileID: 8696612374155324621, guid: ae354dc55c8fd444cae6d3c189c010a3, type: 3}
@@ -2441,7 +2549,6 @@ GameObject:
   - component: {fileID: 581410921}
   - component: {fileID: 581410924}
   - component: {fileID: 581410923}
-  - component: {fileID: 581410922}
   m_Layer: 0
   m_Name: Foliage
   m_TagString: Untagged
@@ -2464,20 +2571,6 @@ Transform:
   m_Father: {fileID: 325454946}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &581410922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581410920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c1b5542fa4ac8f4bbfe49526c5245d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startNode: {fileID: 0}
-  endNode: {fileID: 0}
 --- !u!483693784 &581410923
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -2727,7 +2820,6 @@ GameObject:
   - component: {fileID: 632806786}
   - component: {fileID: 632806788}
   - component: {fileID: 632806787}
-  - component: {fileID: 632806789}
   - component: {fileID: 632806791}
   m_Layer: 4
   m_Name: Water
@@ -3672,20 +3764,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &632806789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632806785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c1b5542fa4ac8f4bbfe49526c5245d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startNode: {fileID: 0}
-  endNode: {fileID: 0}
 --- !u!19719996 &632806791
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -3764,7 +3842,6 @@ GameObject:
   - component: {fileID: 705209806}
   - component: {fileID: 705209809}
   - component: {fileID: 705209808}
-  - component: {fileID: 705209807}
   m_Layer: 7
   m_Name: Path
   m_TagString: Path
@@ -3787,20 +3864,6 @@ Transform:
   m_Father: {fileID: 325454946}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &705209807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705209805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c1b5542fa4ac8f4bbfe49526c5245d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startNode: {fileID: 0}
-  endNode: {fileID: 0}
 --- !u!483693784 &705209808
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -5836,7 +5899,6 @@ GameObject:
   - component: {fileID: 1155690953}
   - component: {fileID: 1155690956}
   - component: {fileID: 1155690955}
-  - component: {fileID: 1155690954}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -5859,20 +5921,6 @@ Transform:
   m_Father: {fileID: 325454946}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1155690954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155690952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c1b5542fa4ac8f4bbfe49526c5245d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startNode: {fileID: 0}
-  endNode: {fileID: 0}
 --- !u!483693784 &1155690955
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -6761,7 +6809,6 @@ GameObject:
   - component: {fileID: 1446160417}
   - component: {fileID: 1446160420}
   - component: {fileID: 1446160419}
-  - component: {fileID: 1446160418}
   - component: {fileID: 1446160421}
   m_Layer: 3
   m_Name: Island
@@ -6785,20 +6832,6 @@ Transform:
   m_Father: {fileID: 325454946}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1446160418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1446160416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c1b5542fa4ac8f4bbfe49526c5245d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startNode: {fileID: 0}
-  endNode: {fileID: 0}
 --- !u!483693784 &1446160419
 TilemapRenderer:
   m_ObjectHideFlags: 0
