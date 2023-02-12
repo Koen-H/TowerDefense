@@ -15,6 +15,7 @@ public class InspectingUIState :  BasicState
         inspectCardManager = uIManager.inspectCardUI.GetComponent<InspectCardManager>();
     }
 
+
     public void EnterState()
     {
         Debug.Log("entering inspecting state");

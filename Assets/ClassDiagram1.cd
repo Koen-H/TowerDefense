@@ -22,14 +22,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="BuyCardManager">
-    <Position X="22.5" Y="12" Width="1.5" />
+    <Position X="21.75" Y="12" Width="1.5" />
     <Members>
       <Method Name="Awake" Hidden="true" />
       <Method Name="OnDestroy" Hidden="true" />
     </Members>
     <TypeIdentifier>
       <HashCode>AAIRAAAIQAAAgAAAMAAAIBAAAAAAAQBAAAAQAAABAEA=</HashCode>
-      <FileName>Assets\Scripts\BuyCardManager.cs</FileName>
+      <FileName>Assets\Scripts\UI\BuyCardManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Enemy">
@@ -50,7 +50,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Path">
-    <Position X="3" Y="11" Width="1.5" />
+    <Position X="2.5" Y="11.25" Width="1.5" />
     <Members>
       <Method Name="Start" Hidden="true" />
     </Members>
@@ -83,34 +83,33 @@
       <Method Name="Awake" Hidden="true" />
       <Method Name="OnDestroy" Hidden="true" />
       <Method Name="Start" Hidden="true" />
-      <Method Name="Update" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AQRHSAAgACCAAACgAAAAAAAAAAAAAAAAQAAEAEAAAEg=</HashCode>
+      <HashCode>AQBFSAAgACCAAACgAAAAAAAAAAAAAAAAQAAEAAAAAEg=</HashCode>
       <FileName>Assets\Scripts\Gameflow\GameManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="pathGenerator" />
-      <Field Name="mouseManager" />
       <Field Name="waveManager" />
       <Field Name="startOfLevelStats" />
       <Field Name="conditionManager" />
     </ShowAsAssociation>
   </Class>
   <Class Name="MouseManager">
-    <Position X="4.75" Y="15.75" Width="1.5" />
+    <Position X="19.25" Y="2.75" Width="1.5" />
+    <Members>
+      <Method Name="Awake" Hidden="true" />
+      <Method Name="Start" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+    </Members>
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAIAAAAAEAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
-      <FileName>Assets\Scripts\Gameflow\Mouse\MouseManager.cs</FileName>
+      <HashCode>AAQUAAAAACABAAAAAAAAAABAAAAAAAAAQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Deprecated\MouseManager.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="placeTowerManager" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="PathGenerator">
-    <Position X="5" Y="13" Width="1.5" />
+    <Position X="4.25" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAAEAEAACAAAAAAACAAAAAAAAAACAAIA=</HashCode>
+      <HashCode>AgAEAAAAAAAAAAEAEAACAAAAAAACAAAAQAAAAACAAMA=</HashCode>
       <FileName>Assets\Scripts\Gameflow\PathGenerator.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -118,14 +117,16 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="PlaceTowerManager">
-    <Position X="1.75" Y="16" Width="1.75" />
+    <Position X="0.5" Y="13" Width="1.75" />
     <Members>
       <Method Name="Awake" Hidden="true" />
-      <Method Name="Start" Hidden="true" />
+      <Method Name="OnDestroy" Hidden="true" />
+      <Method Name="OnTriggerEnter2D" Hidden="true" />
+      <Method Name="OnTriggerExit2D" Hidden="true" />
       <Method Name="Update" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AEQFAAKIACABASIAEAAAAAAAIEAAAAAEAAAAEAIAAEA=</HashCode>
+      <HashCode>AAQFAAKIAAABASIAEAAAAAAAIEAAAAAEAAAAEAIAAEA=</HashCode>
       <FileName>Assets\Scripts\Gameflow\PlaceTowerManager.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -161,28 +162,28 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="InspectCardManager">
-    <Position X="22.5" Y="6" Width="1.75" />
+    <Position X="18.75" Y="6.5" Width="1.75" />
     <Members>
       <Method Name="OnDestroy" Hidden="true" />
       <Method Name="Start" Hidden="true" />
     </Members>
     <TypeIdentifier>
       <HashCode>AAABAAAEQSAAAAQAQCAAAAEAAgBAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\Scripts\InspectCardManager.cs</FileName>
+      <FileName>Assets\Scripts\UI\InspectCardManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Field Name="upgradeCardItems" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="InspectTowerManager">
-    <Position X="22.5" Y="9.75" Width="1.75" />
+    <Position X="19.75" Y="9.75" Width="1.75" />
     <Members>
       <Method Name="Start" Hidden="true" />
       <Method Name="Update" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAQAAAAIACAAAAAAAACAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
-      <FileName>Assets\Scripts\InspectTowerManager.cs</FileName>
+      <HashCode>AAQAAAAAACAAAAAAAACAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Deprecated\InspectTowerManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="inspectCard" />
@@ -192,11 +193,12 @@
     <Position X="19.25" Y="12.75" Width="1.5" />
     <Members>
       <Method Name="Awake" Hidden="true" />
+      <Method Name="OnDestroy" Hidden="true" />
       <Method Name="Start" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>IAABAKAQACgAAAAAAABEAAAAEAAAAAIEAAAAgAIBAEA=</HashCode>
-      <FileName>Assets\Scripts\ShopManager.cs</FileName>
+      <HashCode>IAABACAAACgAAAAAAABEAAAAEAAAAAIEAAAAgAIBAEA=</HashCode>
+      <FileName>Assets\Scripts\Gameflow\ShopManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="levelStats" />
@@ -307,17 +309,17 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ConditionManager">
-    <Position X="8" Y="18.75" Width="1.75" />
+    <Position X="4.5" Y="15" Width="1.75" />
     <TypeIdentifier>
       <HashCode>EAAACAAAAAAAAAAAAAAAAAAAAAAAAAgAIAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\UI\ConditionManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UpgradeCartItem">
-    <Position X="20" Y="8.25" Width="1.5" />
+    <Position X="16.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABCAgAAAAAAAJAAAABAAAAAQAAAAAACAAAgAAADAAA=</HashCode>
-      <FileName>Assets\Scripts\UpgradeCartItem.cs</FileName>
+      <FileName>Assets\Scripts\UI\UpgradeCartItem.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="towerUpgrade" />
@@ -331,28 +333,88 @@
     </Members>
     <TypeIdentifier>
       <HashCode>AAABQABAAOAAAAAAAAAAAAAAAABAAAAAAAAgAAAAAAA=</HashCode>
-      <FileName>Assets\Scripts\waveButtonManager.cs</FileName>
+      <FileName>Assets\Scripts\UI\waveButtonManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="waveManager" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="TowerUpgrade" Collapsed="true">
-    <Position X="23.5" Y="8.25" Width="1.5" />
+  <Class Name="TowerUpgrade">
+    <Position X="10.25" Y="5.75" Width="1.5" />
+    <Members>
+      <Method Name="Start" Hidden="true" />
+    </Members>
     <TypeIdentifier>
       <HashCode>AQAQAAAAACAAAAAAMAAhAAAAACAAAAAAAAAQCAAABAI=</HashCode>
       <FileName>Assets\Scripts\Tower\Upgrades\Tower Upgrades\TowerUpgrade.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Range">
-    <Position X="17.75" Y="4.25" Width="1.5" />
+    <Position X="13.25" Y="4.5" Width="1.5" />
     <Members>
       <Method Name="Awake" Hidden="true" />
+      <Method Name="OnTriggerEnter2D" Hidden="true" />
+      <Method Name="OnTriggerExit2D" Hidden="true" />
     </Members>
     <TypeIdentifier>
       <HashCode>IAAQAgCIAAAAACAAAFAAAAAAAEAAAYAAABoAAAACAEA=</HashCode>
       <FileName>Assets\Scripts\Tower\Range.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="StateMachine">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAIAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameflow\UI\StateMachine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdleUIState" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAQAAAAAgAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameflow\UI\States\IdleUIState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="1.163" />
+  </Class>
+  <Class Name="InspectingUIState" BaseTypeListCollapsed="true">
+    <Position X="23.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAQAAAAAgAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameflow\UI\States\InspectingUIState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ShoppingUIState" BaseTypeListCollapsed="true">
+    <Position X="25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAQAAAAAgAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameflow\UI\States\ShoppingUIState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UIManager">
+    <Position X="21" Y="0.5" Width="1.5" />
+    <Members>
+      <Method Name="Awake" Hidden="true" />
+      <Method Name="Start" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAQEAEEAACABBAABAAAAAABAAAAAAAQAQAAAAAAgAEQ=</HashCode>
+      <FileName>Assets\Scripts\Gameflow\UI\UIManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="idleState" />
+      <Field Name="inspectingState" />
+      <Field Name="shoppingState" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="BasicState">
+    <Position X="23" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAgAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Gameflow\UI\BasicState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

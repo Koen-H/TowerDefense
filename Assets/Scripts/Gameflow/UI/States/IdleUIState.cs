@@ -13,7 +13,9 @@ public class IdleUIState :  BasicState
     {
         uiManager = _uiManager;
     }
-    public  void EnterState()
+
+
+    public void EnterState()
     {
         Debug.Log("entering idle state");
     }

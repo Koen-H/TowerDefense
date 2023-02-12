@@ -16,6 +16,7 @@ public class ShoppingUIState :  BasicState
         UIManager = _UIManager;
     }
 
+
     public void EnterState()
     {
         UIManager.shopUI.SetActive(true);
